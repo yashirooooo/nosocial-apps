@@ -1,5 +1,8 @@
+import { Web3ReactProvider } from '@web3-react/core';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Web3 from 'web3';
+import { MetaMaskProvider } from './components/wallets/metamask';
 import './index.css';
 import Home from './pages/home';
 import reportWebVitals from './reportWebVitals';
@@ -9,7 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Home />
+    <Web3ReactProvider getLibrary={(provider, connector) => { new Web3(provider) }}>
+      <MetaMaskProvider>
+        <Home />
+      </MetaMaskProvider>
+    </Web3ReactProvider>
   </React.StrictMode>
 );
 
