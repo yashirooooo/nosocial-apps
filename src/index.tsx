@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client';
 import Web3 from 'web3';
 import { MetaMaskProvider } from './components/wallets/metamask';
 import './index.css';
-import Home from './pages/home';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
