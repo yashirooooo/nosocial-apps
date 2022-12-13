@@ -1,19 +1,19 @@
-.Home {
+.Login {
   text-align: center;
 }
 
-.Home-logo {
+.Login-logo {
   height: 20vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .Home-logo {
-    animation: Home-logo-spin infinite 20s linear;
+  .Login-logo {
+    animation: Login-logo-spin infinite 20s linear;
   }
 }
 
-.Home-header {
+.Login-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +24,7 @@
   color: white;
 }
 
-@keyframes Home-logo-spin {
+@keyframes Login-logo-spin {
   from {
     transform: rotate(0deg);
   }

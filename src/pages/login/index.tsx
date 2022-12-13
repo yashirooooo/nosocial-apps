@@ -4,11 +4,11 @@ import metamaskIcon from '../../assets/svgs/metamask.svg';
 import nounWavingIcon from '../../assets/svgs/noun_waving.svg';
 import './style.css';
 
-function Home() {
+function Login() {
     const { connect, disconnect, account, isConnected } = useMetaMask()
     return (
-        <div className="Home">
-            <header className="Home-header">
+        <div className="Login">
+            <header className="Login-header">
                 <Button variant="contained" onClick={connect} disabled={isConnected}>
                     <img src={metamaskIcon} alt="MetaMask" width="50" height="50" /> Connect to MetaMask
                 </Button>
@@ -23,4 +23,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Login;
