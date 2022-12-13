@@ -1,24 +1,28 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-// layouts
-import HomeLayout from './pages/home';
+
+// Pages
+import LoginPage from './pages/login';
+import PselectPage from './pages/pselect';
 import DashboardLayout from './layouts/dashboard';
 import SimpleLayout from './layouts/simple';
-//
-import Page404 from './pages/Page404';
-import ProfileAppPage from './pages/profile/Profile';
-import AppsPage from './pages/apps/AppsPage';
-import BenifitsPage from './pages/benifits/BenifitsPage';
-
-// ----------------------------------------------------------------------
+import Page404 from './pages/404';
+import ProfileAppPage from './pages/profile';
+import AppsPage from './pages/apps';
+import BenifitsPage from './pages/benifits';
 
 export default function Router() {
     const routes = useRoutes([
         {
             path: '/',
-            element: <HomeLayout />,
-            children: [
-                { element: <Navigate to="/" />, index: true }
-            ],
+            element: <Navigate to="/login" replace/>
+        },   
+        {
+             path: 'login',
+             element: <LoginPage />,
+        },
+        {
+            path: 'pselect',
+            element: <PselectPage />,
         },
         {
             path: '/dashboard',
@@ -33,7 +37,6 @@ export default function Router() {
         {
           element: <SimpleLayout />,
           children: [
-            { element: <Navigate to="/dashboard/app" />, index: true },
             { path: '404', element: <Page404 /> },
             { path: '*', element: <Navigate to="/404" /> },
           ],
