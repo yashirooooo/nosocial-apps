@@ -4,7 +4,7 @@ import metamaskIcon from '../../assets/svgs/metamask.svg';
 import nounWavingIcon from '../../assets/svgs/noun_waving.svg';
 import './style.css';
 
-function Login() {
+function LoginPage() {
     const { connect, disconnect, account, isConnected } = useMetaMask()
     return (
         <div className="Login">
@@ -23,4 +23,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginPage;
