@@ -53,6 +53,7 @@ export default function Nav({ openNav, onCloseNav }: Props) {
 
   return (
     <Box
+      className='Nav'
       component="nav"
       sx={{
         flexShrink: { lg: 0 },

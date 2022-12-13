@@ -25,16 +25,18 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }: Props, ref) => 
   const logo = (
     <Box
       // ref={ref}
-      component="img"
-      src="/assets/icons/nosocial.svg"
+      component="div"  
       sx={{
         width: 40,
         height: 40,
         display: 'inline-flex',
         ...sx,
       }}
-      {...other}
-    />
+      {...other}  
+    >
+      <img src="/assets/icons/nosocial.svg"></img> 
+      {/* <span>Nosocial</span> */}
+    </Box>
   );
 
   if (disabledLink) {

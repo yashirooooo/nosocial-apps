@@ -41,7 +41,7 @@ interface Props {
 
 export default function Header({ onOpenNav }: Props) {
   return (
-    <StyledRoot>
+    <StyledRoot className='Header'>
       <StyledToolbar>
         <IconButton
           onClick={onOpenNav}

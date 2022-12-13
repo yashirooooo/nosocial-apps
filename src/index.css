@@ -5,6 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./assets/images/background.jpg')
+}
+
+.Nav {
+  opacity: 0.7;
+}
+
+.Header {
+  opacity: 0.3;
 }
 
 code {
