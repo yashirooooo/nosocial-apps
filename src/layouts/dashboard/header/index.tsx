@@ -44,7 +44,7 @@ interface Props {
 export default function Header({ onOpenNav }: Props) {
   return (
     <StyledRoot sx={{
-      bgcolor: 'rgba(0, 0, 0, 0)'
+      // bgcolor: 'rgba(0, 0, 0, 0)'
     }}>
       <StyledToolbar>
         <IconButton
