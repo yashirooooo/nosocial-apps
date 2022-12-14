@@ -29,7 +29,7 @@ export function bgBlur(props) {
   }
 
   return {
-    backdropFilter: `blur(${blur}px)`,
+    // backdropFilter: `blur(${blur}px)`,
     WebkitBackdropFilter: `blur(${blur}px)`,
     backgroundColor: alpha(color, opacity),
   };
