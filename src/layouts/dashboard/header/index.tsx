@@ -23,14 +23,17 @@ const StyledRoot = styled(AppBar)(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
     width: `calc(100% - ${NAV_WIDTH + 1}px)`,
   },
+  background: 'bottom'
+  // opacity: 0.8
 }));
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
+const StyledToolbar: any = styled(Toolbar)(({ theme }) => ({
   minHeight: HEADER_MOBILE,
   [theme.breakpoints.up('lg')]: {
     minHeight: HEADER_DESKTOP,
     padding: theme.spacing(0, 5),
   },
+  background: 'bottom'
 }));
 
 // ----------------------------------------------------------------------
@@ -41,7 +44,9 @@ interface Props {
 
 export default function Header({ onOpenNav }: Props) {
   return (
-    <StyledRoot className='Header'>
+    <StyledRoot sx={{
+      bgcolor: 'rgba(0, 0, 0, 0.05)'
+    }}>
       <StyledToolbar>
         <IconButton
           onClick={onOpenNav}
@@ -65,7 +70,6 @@ export default function Header({ onOpenNav }: Props) {
             sm: 1,
           }}
         >
-          {/* <LanguagePopover /> */}
           <AccountPopover />
         </Stack>
       </StyledToolbar>
