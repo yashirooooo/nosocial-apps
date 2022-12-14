@@ -32,8 +32,7 @@ const StyledToolbar: any = styled(Toolbar)(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
     minHeight: HEADER_DESKTOP,
     padding: theme.spacing(0, 5),
-  },
-  background: 'bottom'
+  }
 }));
 
 // ----------------------------------------------------------------------
@@ -45,7 +44,7 @@ interface Props {
 export default function Header({ onOpenNav }: Props) {
   return (
     <StyledRoot sx={{
-      bgcolor: 'rgba(0, 0, 0, 0.05)'
+      bgcolor: 'rgba(0, 0, 0, 0)'
     }}>
       <StyledToolbar>
         <IconButton
