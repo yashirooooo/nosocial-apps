@@ -1,8 +1,7 @@
-import { forwardRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { Box, Link } from '@mui/material';
-
+import './style.css';
 // ----------------------------------------------------------------------
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
   disabledLink?: boolean;
 }
 
-const Logo = forwardRef(({ disabledLink = false, sx, ...other }: Props, ref) => {
+const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
 
   // OR using local (public folder)
   // -------------------------------------------------------
@@ -25,16 +24,19 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }: Props, ref) => 
   const logo = (
     <Box
       // ref={ref}
-      component="img"
-      src="/assets/icons/nosocial.svg"
+      component="div"  
       sx={{
-        width: 40,
+        // width: 40,
         height: 40,
-        display: 'inline-flex',
+        display: 'inline-block',
         ...sx,
+        alignItems: 'center',
+        // justifyContent: ''
       }}
-      {...other}
-    />
+      {...other}  
+    >
+      <img src="/assets/icons/nosocial.svg"></img> 
+    </Box>
   );
 
   if (disabledLink) {
@@ -42,10 +44,21 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }: Props, ref) => 
   }
 
   return (
-    <Link to="/dashboard/profile" component={RouterLink} sx={{ display: 'contents' }}>
+    <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', width: '80%', textDecoration: 'none' }}>
       {logo}
+      <p className='logoTitle' style={{ 'marginLeft': '20px', fontSize: '20px' }}>
+        <span id='N'>N</span>
+        <span id='o1'>o</span>
+        <span id='S'>S</span>
+        <span id='o2'>o</span>
+        <span id='c'>c</span>
+        <span id='i'>i</span>
+        <span id='a'>a</span>
+        <span id='l'>l</span>
+      </p>
     </Link>
   );
-});
+};
 
 export default Logo;
+
