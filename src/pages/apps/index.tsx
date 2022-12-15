@@ -9,7 +9,7 @@ export default function AppsPage() {
   return (
     <>
       <Helmet>
-        <title> Apps | Nosocial UI </title>
+        <title> Apps | NoSocial Apps </title>
       </Helmet>
 
       <Container maxWidth="xl">
