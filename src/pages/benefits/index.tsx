@@ -5,17 +5,17 @@ import { Container, Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
-export default function BenifitsPage() {
+export default function BenefitsPage() {
 
   return (
     <>
       <Helmet>
-        <title> Benifits | Nosocial UI </title>
+        <title> Benefits | NoSocial Apps </title>
       </Helmet>
 
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Benifits
+          Benefits
         </Typography>
       </Container>
     </>

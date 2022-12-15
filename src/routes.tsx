@@ -8,7 +8,7 @@ import SimpleLayout from './layouts/simple';
 import Page404 from './pages/404';
 import ProfileAppPage from './pages/profile';
 import AppsPage from './pages/apps';
-import BenifitsPage from './pages/benifits';
+import BenefitsPage from './pages/benefits';
 
 export default function Router() {
     const routes = useRoutes([
@@ -31,7 +31,7 @@ export default function Router() {
                 { element: <Navigate to="/dashboard/profile" /> },
                 { path: 'profile', element: <ProfileAppPage /> },
                 { path: 'apps', element: <AppsPage /> },
-                { path: 'benifits', element: <BenifitsPage /> },
+                { path: 'benifits', element: <BenefitsPage /> },
             ],
         },
         {

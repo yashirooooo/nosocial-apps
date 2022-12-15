@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
-import { Box, Card, CardContent, CardMedia, Container, TextField, Typography } from '@mui/material';
+import { Card, CardContent, TextField, Typography } from '@mui/material';
 import './style.css';
 // components
 
@@ -11,7 +11,7 @@ export default function ProfileAppPage() {
   return (
     <>
       <Helmet>
-        <title> Profile | Nosocial UI </title>
+        <title> Profile | NoSocial Apps </title>
       </Helmet>
       {/* <Container maxWidth="xl">
       </Container> */}
