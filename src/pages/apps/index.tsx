@@ -12,7 +12,7 @@ export default function AppsPage() {
         <title> Apps | NoSocial Apps </title>
       </Helmet>
 
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" className='apps_container'>
         <div>
           <div className='apps_list'>
             <div>    
