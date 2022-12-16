@@ -1,0 +1,127 @@
+.benefits_page {
+    padding-left: 44px;
+}
+
+.benefits_list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.benefits_card {
+    width: 672px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.benefits_card_progress {
+    width: 672px;
+    height: 78px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.benefits_card_progress_icon {
+    width: 78px;
+    height: 78px;
+    background-color: aqua;
+}
+
+.benefits_card_progress_bar {
+    width: 594px;
+    height: 78px;
+    background-color: #1211151A;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.benefits_card_progress_bar #bar {
+    left: 0px;
+    position: absolute;
+    /* 
+     width refactor into variable
+     */
+    width: 330px; 
+    height: 78px;
+    z-index: -1;
+    background-color: #8247E5;
+    animation: progressAnimationStrike 6s;
+}
+
+.benefits_card_progress_bar #text {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    /* font-weight: 900; */
+    /* line-height: 70px; */
+    height: 70px;
+    letter-spacing: 0.1px;
+    padding-left: 10px;
+    color: #FFFFFF;
+}
+
+.benefits_card_progress_bar #text #amount {
+    font-weight: 900;
+    font-size: 60px;  
+}
+
+.benefits_card_progress_bar #text #unit {
+    font-size: 20px;
+}
+
+#by {
+    font-size: 12px;
+}
+
+.benefits_card_progress_bar span {
+    margin-right: 10px;
+}
+
+.benefits_card_progress_label {
+    position:absolute;
+    top: 18px;
+    right: 20px;
+    width: 77px;
+    height: 40px;
+    border: #1211151A 1px solid;
+    border-radius: 10px;
+    /* M3/label/large */
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    
+    /* identical to box height, or 143% */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+
+    /* M3/sys/dark/primary */
+
+    color: #D0BCFF;
+}
+
+.benefits_card_task_list {
+
+}
+
+@keyframes progressAnimationStrike {
+    from {
+      width: 0;
+    }
+    to {
+        /* 
+        width refactor into variable
+        */
+      width: 66%;
+    }
+}
