@@ -39,12 +39,12 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
     </Box>
   );
 
-  if (disabledLink) {
-    return <>{logo}</>;
-  }
+  // if (disabledLink) {
+  //   return <>{logo}</>;
+  // }
 
   return (
-    <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', width: '80%', textDecoration: 'none' }}>
+    <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
       {logo}
       <p className='logoTitle' style={{ 'marginLeft': '20px', fontSize: '20px' }}>
         <span id='N'>N</span>
