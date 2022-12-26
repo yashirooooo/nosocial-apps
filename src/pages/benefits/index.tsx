@@ -1,6 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
-import { Container, TextField, Typography } from '@mui/material';
+import { Container, Divider, TextField, Typography } from '@mui/material';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 // components
 
 import './style.css';
@@ -16,6 +21,54 @@ export default function BenefitsPage() {
       </Helmet>
 
       <Container maxWidth="xl" className='benefits_page'>
+        <div className='filter'>
+          <div className='filter_button'>Hide Filter</div>
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Benefit Type</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="nft"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel value="nft" control={<Radio />} label="NFT" />
+              <FormControlLabel value="token" control={<Radio />} label="Token" />
+              <FormControlLabel value="membership" control={<Radio />} label="Membership" />
+              <FormControlLabel value="others" control={<Radio />} label="Others" />
+            </RadioGroup>
+          </FormControl>
+
+          <Divider className='divider' />
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Eligibility Criteria</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="publications"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel value="publications" control={<Radio />} label="Publications" />
+              <FormControlLabel value="followers" control={<Radio />} label="Followers" />
+              <FormControlLabel value="activities" control={<Radio />} label="Activities" />
+              <FormControlLabel value="others" control={<Radio />} label="Others" />
+            </RadioGroup>
+          </FormControl>
+
+          <Divider className='divider' />
+
+          <FormControl>
+            <FormLabel id="demo-radio-buttons-group-label">Status</FormLabel>
+            <RadioGroup
+              aria-labelledby="demo-radio-buttons-group-label"
+              defaultValue="active"
+              name="radio-buttons-group"
+            >
+              <FormControlLabel value="active" control={<Radio />} label="Active" />
+              <FormControlLabel value="notStarted" control={<Radio />} label="NotStarted" />
+              <FormControlLabel value="expired" control={<Radio />} label="Expired" />
+            </RadioGroup>
+          </FormControl>
+          
+        </div>
         <div>
           <div className='benefits_list'>
             <div>    
