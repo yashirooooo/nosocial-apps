@@ -14,32 +14,33 @@ export default function Router() {
     const routes = useRoutes([
         {
             path: '/',
-            element: <Navigate to="/dashboard" replace/>
+            element: <Navigate to="/dashboard/profile" replace/>
         },   
         {
-             path: 'login',
+             path: '/login',
              element: <LoginPage />,
         },
         {
-            path: 'pselect',
+            path: '/login/pselect',
             element: <PselectPage />,
         },
         {
             path: '/dashboard',
             element: <DashboardLayout />,
             children: [
-                { element: <Navigate to="/dashboard/profile" /> },
+                { element: <Navigate to="/dashboard/profile" replace/> },
                 { path: 'profile', element: <ProfileAppPage /> },
                 { path: 'apps', element: <AppsPage /> },
                 { path: 'benifits', element: <BenefitsPage /> },
             ],
         },
         {
-          element: <SimpleLayout />,
-          children: [
-            { path: '404', element: <Page404 /> },
-            { path: '*', element: <Navigate to="/404" /> },
-          ],
+            path: '/404',
+            element: <Page404 />
+        },
+        {
+            path: '/*',
+            element: <Navigate to="/404" replace/>
         }
     ]);
 
