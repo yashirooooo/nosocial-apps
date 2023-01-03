@@ -1,9 +1,10 @@
-name: Release to Github Pages(Prod)
+name: Main CI
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
 
 env:
   CI: false
@@ -21,10 +22,3 @@ jobs:
         run: |
           yarn
           yarn build
-      
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: build
-          target-folder: docs
