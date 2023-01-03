@@ -23,19 +23,24 @@ export default function ProfileAppPage() {
           <div className='basic_info'>
             <div className='basic_info_avatar'>
               <img src='/assets/images/-yqkYEms_400x400.jpg'></img>
-            </div>
-            <div className='basic_info_data'>
-              <div className='basic_info_data_up'>
-                <div id='name'>Bob Dean</div>
-                <div id='email'>@bob.lens</div>
-              </div>
-              <div className='basic_info_data_down'>
-                <div id='address'>0x6C956B990179fcdfab0C323615f2a93af4A9a0ad |</div>
-                <div id='followings'>10 Followings |</div>
-                <div id='followers'>9,765 Followers |</div>
-                <div id='birthday'>Joined March 2020</div>
-              </div>
-            </div>
+            </div>         
+          </div>
+        </div>
+        <div className='basic_info_data'>
+          <div id='name'>Bob Dean</div>
+          <div id='email'>@bob.lens</div>
+          <div className='basic_info_data_up'>
+            <div>Music is my life</div>
+          </div>
+          <div className='basic_info_data_up'>
+            <div>10 Followings</div>
+            <div>9,765 Followers</div>
+          </div>
+          <div className='basic_info_data_down'>
+            <div id='address'>0x6C956B990179fcdfab0C323615f2a93af4A9a0ad |</div>
+            <div id='followings'>10 Followings |</div>
+            <div id='followers'>9,765 Followers |</div>
+            <div id='birthday'>Joined March 2020</div>
           </div>
         </div>
         <div className='profile_list'>
@@ -43,7 +48,7 @@ export default function ProfileAppPage() {
             <div>
               <TextField
                 id="standard-read-only-input"
-                defaultValue="AI Tags"
+                defaultValue="Achievements"
                 InputProps={{
                   readOnly: true,
                 }}
@@ -58,7 +63,7 @@ export default function ProfileAppPage() {
             <div>
               <TextField
                 id="standard-read-only-input"
-                defaultValue="Achievements"
+                defaultValue="AI Tags"
                 InputProps={{
                   readOnly: true,
                 }}

@@ -55,7 +55,6 @@
 .benefits_card_progress_icon {
     width: 78px;
     height: 78px;
-    background-color: aqua;
 }
 
 .benefits_card_progress_bar {
@@ -141,7 +140,30 @@
 }
 
 .benefits_card_task_list {
+    border: 1px solid rgba(208, 188, 255, 0.2);
+    border-radius: 0px 0px 10px 10px;
+    padding: 28px 28px;
+}
 
+.benefits_card_task_list ul {
+    list-style-type: none;
+}
+
+.benefits_card_task_list ul li {
+    display: flex;
+    margin-top: 8px;
+}
+
+.benefits_card_task_list ul li span {
+    margin-left: 10px;
+}
+
+.task_complete {
+
+}
+
+.task_not_complete {
+    color: #8A8A8A;
 }
 
 @keyframes progressAnimationStrike {
