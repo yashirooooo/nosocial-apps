@@ -23,9 +23,6 @@ export default function AppsPage() {
                   readOnly: true,
                 }}
                 variant="standard"
-                sx={ {
-                  marginBottom: 2
-                }}
               />
             </div>
             <div className='app_card_list'>

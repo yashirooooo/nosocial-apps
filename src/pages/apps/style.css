@@ -11,6 +11,7 @@
 .app_card_list {
     display: flex;
     flex-direction: column;
+    margin-top: 18px;
 }
 
 .app_card_container {
