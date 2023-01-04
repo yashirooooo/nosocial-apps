@@ -26,16 +26,15 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
       // ref={ref}
       component="div"  
       sx={{
-        // width: 40,
-        height: 40,
+        width: 32,
+        height: 32,
         display: 'inline-block',
         ...sx,
         alignItems: 'center',
-        // justifyContent: ''
       }}
       {...other}  
     >
-      <img src="/assets/icons/nosocial.svg"></img> 
+      <img src="/assets/images/logo192.png" height="30" width="30"></img> 
     </Box>
   );
 

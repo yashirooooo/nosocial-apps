@@ -29,7 +29,7 @@ interface ItemProps {
 }
 
 function NavItem({ item }: ItemProps) {
-  const { title, path, icon, info } = item;
+  const { title, path, icon, info, open } = item;
 
   return (
     <StyledNavItem
@@ -42,6 +42,7 @@ function NavItem({ item }: ItemProps) {
           fontWeight: 'fontWeightBold',
         },
       }}
+      disabled={!open}
     >
       <StyledNavItemIcon>{icon && icon}</StyledNavItemIcon>
 
