@@ -2,6 +2,8 @@ import { Helmet } from 'react-helmet-async';
 // @mui
 import { Card, CardContent, TextField, Typography } from '@mui/material';
 import './style.css';
+import ActivityCard from 'src/components/activity-card';
+import ProfileBenefit from 'src/components/profile-benefit';
 // components
 
 // ----------------------------------------------------------------------
@@ -87,69 +89,22 @@ export default function ProfileAppPage() {
             </div>
             <div className='category_data_list'>
               <div className='category_data_list_cl'>
-                
-                <div className='activity_data_card'>
-                  <Card>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Posts
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        76
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
-                        +11% of last week
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className='activity_data_card'>
-                  <Card>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Mirrors
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        19,231
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#EF8F8F' }}>
-                        -56.6% of last week
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className='activity_data_card'>
-                  <Card>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Comments
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        156
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
-                        +17% of last week
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </div>
-                <div className='activity_data_card'>
-                  <Card>
-                    <CardContent>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Collects
-                      </Typography>
-                      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        156
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
-                        +17% of last week
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
-              
+                <ActivityCard 
+                  name={`Posts`}
+                  number={76}
+                  variation={11}
+                />
+                <ActivityCard 
+                  name={`Mirrors`}
+                  number={19231}
+                  variation={-56.6}
+                />
+                <ActivityCard 
+                  name={`Comments`}
+                  number={156}
+                  variation={17}
+                />
+              </div>    
             </div>
           </div>
           <div className='category_container'>
@@ -165,23 +120,20 @@ export default function ProfileAppPage() {
             </div>
             <div className='category_data_list'>
               <div className='category_data_list_cl'>
-                <div className='benefits_data_card'>
-                  <img id='icon' src='/assets/images/image2.svg' />
-                  <div id='desc'>
-                    <div id='top'>1.23 Ethers</div>
-                    <div id='bottom'>by lenster</div>
-                  </div>
-                  <img id='img' src='/assets/images/image1.svg' />
-                </div>
-                <div className='benefits_data_card'>
-                  <img id='icon' src='/assets/images/image2.svg' />
-                  <div id='desc'>
-                    <div id='top'>1.23 Ethers</div>
-                    <div id='bottom'>by lenster</div>
-                  </div>
-                  <img id='img' src='/assets/images/image1.svg' />
-                </div>
-
+                <ProfileBenefit
+                  icon={'/assets/images/image2.svg'}
+                  amount={1.23}
+                  unit={`Ethers`}
+                  author={`lenster`}
+                  img={'/assets/images/image1.svg'}
+                />
+                <ProfileBenefit
+                  icon={'/assets/images/image2.svg'}
+                  amount={1.23}
+                  unit={`Ethers`}
+                  author={`lenster`}
+                  img={'/assets/images/image1.svg'}
+                />
               </div>
               <div className='category_data_list_cl'>
                 <div className='benefits_data_card'>
