@@ -85,10 +85,38 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
-            <BenefitProgress tasks={tasks2} progress={0.3} />
-            <BenefitProgress tasks={tasks1} progress={0.1} />
-            <BenefitProgress progress={0} />
-            <BenefitProgress progress={1} />
+            <BenefitProgress 
+              tasks={tasks2} 
+              progress={0.3}
+              name={'MATIC'}
+              author={'NoSocial'}
+              amount={70}
+              icon={'/assets/images/3.svg'}
+            />
+            <BenefitProgress 
+              tasks={tasks1} 
+              progress={0.5}
+              name={'ETHER'}
+              author={'Lenster'}
+              amount={1.3}
+              icon={'/assets/images/eth.svg'}
+              color='#FFFFFF'
+              fontColor='#000000'
+            />
+            <BenefitProgress 
+              progress={0}
+              name={'MATIC'}
+              author={'NoSocial'}
+              amount={70}
+              icon={'/assets/images/5.svg'}
+            />
+            <BenefitProgress 
+              progress={1}
+              name={'MATIC'}
+              author={'NoSocial'}
+              amount={70}
+              icon={'/assets/images/6.svg'}
+            />
           </div>
           <div className='benefits_list'>
             <div>    
@@ -104,8 +132,21 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
-            <BenefitProgress progress={0} />
-            <BenefitProgress progress={0} />
+            <BenefitProgress 
+              progress={0}
+              name={'MATIC'}
+              author={'NoSocial'}
+              amount={70}
+              icon={'/assets/images/7.svg'}
+            />
+            <BenefitProgress 
+              progress={0}
+              name={'MATIC'}
+              author={'NoSocial'}
+              amount={70}
+              icon={'/assets/images/polygon.svg'}
+              fontColor={'#000000'}
+            />
           </div>
         </div>
       </Container>

@@ -1,36 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './style.css';
 import Collapse from '@mui/material/Collapse';
 import { Divider, styled } from '@mui/material';
 
-interface ProgressCardProps {
+interface ProgressCardProps extends BaseStyle {
     width: number,
+}
+
+interface BaseStyle {
     color: string
 }
 
 const Bar = styled('div')(({ width, color }: ProgressCardProps) => ({
     // 594px == 100%
-    "@keyframes progressAnimationStrike": {
-        from: {
-            width: 0,
-        },
-        to: {
-            /* 
-                width refactor into variable
-            */
-            width: width / 594 * 100 + '%',
-        }
-    },
     left: '0px',
     position: 'absolute',
     /* 
-     width refactor into variable
+        width refactor into variable
      */
     width: width + 'px',
     height: '78px',
-    zIndex: -1,
+    zIndex: 1,
     backgroundColor: color,
-    animation: `progressAnimationStrike 6s`,
+}));
+
+const TextDiv = styled('div')(({ color }: BaseStyle) => ({
+    color: color,
 }));
 
 interface Task {
@@ -40,12 +35,36 @@ interface Task {
 }
 
 interface Props {
+    amount: number;
+    name: string;
+    author: string;
     tasks?: Task[];
     progress: number;
+    icon: string;
+    fontColor?: string;
+    color?: string;
 }
 
-export default function BenefitProgress({ tasks, progress }: Props) {
+export default function BenefitProgress({ icon, amount, author, name, tasks, progress, fontColor = '#FFFFFF', color = '#8247E5'}: Props) {
     // bar with = progress * 594
+    const [barWidth, setBarWidth] = React.useState(0);
+
+    useEffect(() => {
+        let i = 0;
+        const width = progress * 594;
+        const timer = setInterval(() => {
+            if (width > i) {
+                setBarWidth(++i)
+            } else if (width < i) {
+                setBarWidth(width)
+            }
+        // setProgress(progress1++)
+        }, 5);
+  
+        return () => {
+            clearInterval(timer);
+        };
+    }, []);
 
     const [checked, setChecked] = React.useState(false);
     // const containerRef = React.useRef(null);
@@ -56,19 +75,19 @@ export default function BenefitProgress({ tasks, progress }: Props) {
     
     return <div className='benefits_card'>
     <div className='benefits_card_progress'>
-      <img className='benefits_card_progress_icon' src='/assets/images/7.svg' />
+      <img className='benefits_card_progress_icon' src={icon} />
       <div className='benefits_card_progress_bar'>
         {/* <div id='bar' /> */}
-        <Bar width={progress * 594} color={'#8247E5'} />
-        <div id='text'>
-          <div>
-            <span id='amount'>70</span>
-            <span id='unit'>Matic</span>
-            <span id='by'>By: lens</span>
-          </div>
-        </div>
+        <Bar width={barWidth} color={color} />
+        <TextDiv color={fontColor} id='text'>
+            <div>
+                <span id='amount'>{amount}</span>
+                <span id='unit'>{name}</span>
+                <span id='by'>By: {author}</span>
+            </div>
+        </TextDiv>
         <div className='benefits_card_progress_label'>
-          <button onClick={handleChange}>7 Tasks</button>
+          <button onClick={handleChange}>{tasks ? tasks.length : 0} Tasks</button>
         </div>
       </div>
     </div>
@@ -84,18 +103,12 @@ export default function BenefitProgress({ tasks, progress }: Props) {
         {
             tasks?.map(e => {
                 return e.isFinished ? 
-                <li><img src='/assets/icons/vector.svg' /><span>{e.name}</span></li>
+                <li key={e.id}><img src='/assets/icons/vector.svg' /><span>{e.name}</span></li>
                 :
-                <li className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>{e.name}</span></li>
+                <li key={e.id} className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>{e.name}</span></li>
 
             })
         }
-        {/* <li><img src='/assets/icons/vector.svg' /><span>Sent 10 Posts</span></li>
-        <li><img src='/assets/icons/vector.svg' /><span>Follow 50 people</span></li>
-        <li><img src='/assets/icons/vector.svg' /><span>Get 10 followers</span></li>
-        <li><img src='/assets/icons/vector.svg' /><span>Activate Lenster</span></li>
-        <li className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>Using Lenster setup your avatar</span></li>
-        <li className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>Using Lenster setup your cover image</span></li> */}
       </ul>
     </Collapse>
   </div>

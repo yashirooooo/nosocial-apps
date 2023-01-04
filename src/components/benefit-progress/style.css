@@ -27,18 +27,13 @@
     align-items: center;
 }
 
-.benefits_card_progress_bar #bar {
+/* .benefits_card_progress_bar #bar {
     left: 0px;
     position: absolute;
-    /* 
-     width refactor into variable
-     */
-    width: 330px; 
+    width: 594px; 
     height: 78px;
     z-index: -1;
-    background-color: #8247E5;
-    animation: progressAnimationStrike 6s;
-}
+} */
 
 .benefits_card_progress_bar #text {
     display: flex;
@@ -50,7 +45,7 @@
     height: 70px;
     letter-spacing: 0.1px;
     padding-left: 10px;
-    color: #FFFFFF;
+    z-index: 2;
 }
 
 .benefits_card_progress_bar #text #amount {
@@ -98,6 +93,8 @@
     /* M3/sys/dark/primary */
 
     color: #D0BCFF;
+
+    z-index: 2;
 }
 
 .benefits_card_task_list {
