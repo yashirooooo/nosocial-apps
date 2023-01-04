@@ -21,7 +21,7 @@ export default function Router() {
              element: <LoginPage />,
         },
         {
-            path: '/login/pselect',
+            path: '/login/select',
             element: <PselectPage />,
         },
         {

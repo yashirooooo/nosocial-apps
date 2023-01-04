@@ -29,8 +29,8 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
         width: 32,
         height: 32,
         display: 'inline-block',
-        ...sx,
         alignItems: 'center',
+        ...sx,
       }}
       {...other}
     >
@@ -43,7 +43,8 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
   // }
 
   return (
-    <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+    // <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+    <div className='logo'>
       {logo}
       <p className='logoTitle' style={{ marginLeft: '5px', fontSize: '20px', fontFamily: 'Roboto', fontStyle: 'italic', fontWeight: 'bold' }}>
         <span id='N'>N</span>
@@ -55,7 +56,7 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
         <span id='a'>a</span>
         <span id='l'>l</span>
       </p>
-    </Link>
+    </div>
   );
 };
 

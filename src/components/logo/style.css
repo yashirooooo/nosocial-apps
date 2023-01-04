@@ -1,3 +1,9 @@
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 .logoTitle {
     /* display: block; */
     color: rgb(191, 191, 191);
