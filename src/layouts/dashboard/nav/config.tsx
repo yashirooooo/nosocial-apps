@@ -24,7 +24,8 @@ const navConfig = [
     title: 'Notifications',
     path: '/notifications',
     icon: <CircleNotifications />,
-    open: false
+    open: false,
+    notification: 100
   },
   {
     title: 'Explore',
