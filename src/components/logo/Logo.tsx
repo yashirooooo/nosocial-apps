@@ -24,7 +24,7 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
   const logo = (
     <Box
       // ref={ref}
-      component="div"  
+      component="div"
       sx={{
         width: 32,
         height: 32,
@@ -32,9 +32,9 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
         ...sx,
         alignItems: 'center',
       }}
-      {...other}  
+      {...other}
     >
-      <img src="/assets/images/logo192.png" height="30" width="30"></img> 
+      <img src="/assets/images/logo192.png" height="28" width="28"></img>
     </Box>
   );
 
@@ -45,10 +45,10 @@ const Logo = ({ disabledLink = false, sx, ...other }: Props) => {
   return (
     <Link className='logo' to="/dashboard/profile" component={RouterLink} sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
       {logo}
-      <p className='logoTitle' style={{ 'marginLeft': '20px', fontSize: '20px' }}>
+      <p className='logoTitle' style={{ marginLeft: '5px', fontSize: '20px', fontFamily: 'Roboto', fontStyle: 'italic', fontWeight: 'bold' }}>
         <span id='N'>N</span>
         <span id='o1'>o</span>
-        <span id='S'>S</span>
+        <span id='S'>$</span>
         <span id='o2'>o</span>
         <span id='c'>c</span>
         <span id='i'>i</span>
