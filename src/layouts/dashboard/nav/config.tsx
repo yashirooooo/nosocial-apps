@@ -1,35 +1,31 @@
 // component
-import SvgColor from '../../../components/svg-color';
-
-// ----------------------------------------------------------------------
-
-const icon = (name: string) => <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />;
+import { Face, Apps, CardGiftcard, CircleNotifications, TravelExplore } from "@mui/icons-material";
 
 const navConfig = [
   {
     title: 'Profile',
     path: '/dashboard/profile',
-    icon: icon('ic_blog'),
+    icon: <Face />,
   },
   {
     title: 'Apps',
     path: '/dashboard/apps',
-    icon: icon('ic_cart'),
+    icon: <Apps />,
   },
   {
     title: 'Benefits',
     path: '/dashboard/benifits',
-    icon: icon('ic_analytics'),
+    icon: <CardGiftcard />,
   },
   {
     title: 'Notifications',
     path: '/notifications',
-    icon: icon('ic_disabled'),
+    icon: <CircleNotifications />,
   },
   {
     title: 'Explore',
     path: '/explore',
-    icon: icon('ic_disabled'),
+    icon: <TravelExplore />,
   },
 ];
 
