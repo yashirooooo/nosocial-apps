@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet-async';
-import * as React from 'react';
 // @mui
 import { Container, Divider, TextField } from '@mui/material';
 import Radio from '@mui/material/Radio';
@@ -7,21 +6,14 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
-import Slide from '@mui/material/Slide';
-import Collapse from '@mui/material/Collapse';
 // components
 
 import './style.css';
+import BenefitProgress from 'src/components/benefit-progress';
 // ----------------------------------------------------------------------
+import { tasks1, tasks2 } from 'src/_mock/tasks';
 
 export default function BenefitsPage() {
-
-  const [checked, setChecked] = React.useState(false);
-  const containerRef = React.useRef(null);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
 
   return (
     <>
@@ -93,41 +85,10 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
-            <div className='benefits_card'>
-              <div className='benefits_card_progress'>
-                <img className='benefits_card_progress_icon' src='/assets/images/7.svg' />
-                <div className='benefits_card_progress_bar'>
-                  <div id='bar' />
-                  <div id='text'>
-                    <div>
-                      <span id='amount'>70</span>
-                      <span id='unit'>Matic</span>
-                      <span id='by'>By: lens</span>
-                    </div>
-                  </div>
-                  <div className='benefits_card_progress_label'>
-                    <button onClick={handleChange}>7 Tasks</button>
-                  </div>
-                </div>
-              </div>
-              {/* <div>
-                <Slide direction="up" in={checked} container={containerRef.current} className='benefits_card_task_list'>
-                  <p>Profile NFT is the passport to explore the Lens universeThis benefit contains 6 tasks and will allow you choose your own handle name once you finished.</p>
-                </Slide>
-              </div> */}
-              <Collapse className='benefits_card_task_list' in={checked} timeout="auto" unmountOnExit>
-                <p>Profile NFT is the passport to explore the Lens universeThis benefit contains 6 tasks and will allow you choose your own handle name once you finished.</p>
-                <Divider className='divider' />
-                <ul>
-                  <li><img src='/assets/icons/vector.svg' /><span>Sent 10 Posts</span></li>
-                  <li><img src='/assets/icons/vector.svg' /><span>Follow 50 people</span></li>
-                  <li><img src='/assets/icons/vector.svg' /><span>Get 10 followers</span></li>
-                  <li><img src='/assets/icons/vector.svg' /><span>Activate Lenster</span></li>
-                  <li className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>Using Lenster setup your avatar</span></li>
-                  <li className='task_not_complete'><img src='/assets/icons/vector_none.svg' /><span>Using Lenster setup your cover image</span></li>
-                </ul>
-              </Collapse>
-            </div>
+            <BenefitProgress tasks={tasks2} progress={0.3} />
+            <BenefitProgress tasks={tasks1} progress={0.1} />
+            <BenefitProgress progress={0} />
+            <BenefitProgress progress={1} />
           </div>
           <div className='benefits_list'>
             <div>    
@@ -143,6 +104,8 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
+            <BenefitProgress progress={0} />
+            <BenefitProgress progress={0} />
           </div>
         </div>
       </Container>

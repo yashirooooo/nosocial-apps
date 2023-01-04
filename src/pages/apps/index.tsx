@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { Container, TextField, Typography } from '@mui/material';
 // components
 import './style.css';
+import AppCard from 'src/components/app-card';
+import ExploreApp from 'src/components/explore-app';
 // ----------------------------------------------------------------------
 
 export default function AppsPage() {
@@ -15,7 +17,7 @@ export default function AppsPage() {
       <Container maxWidth="xl" className='apps_container'>
         <div>
           <div className='apps_list'>
-            <div>    
+            <div>
               <TextField
                 id="standard-read-only-input"
                 defaultValue="Your Apps"
@@ -26,67 +28,16 @@ export default function AppsPage() {
               />
             </div>
             <div className='app_card_list'>
-              <div className='app_card_container'>
-                <div className='app_card'>
-                  <img className='app_card_icon' src='/assets/images/3.svg' />
-                  <div className='app_card_content'>
-                    <div className='app_card_content_text'>
-                      <div className='app_card_content_text_top'>Lenster</div>
-                      <div className='app_card_content_text_bottom'>
-                        Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.
-                      </div>
-                    </div>
-                    <div className='app_card_content_button'>
-                      Launch
-                    </div>
-                  </div>
-                </div>
-                <div className='app_detail'>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                </div>
-              </div>
-
-              <div className='app_card_container'>
-                <div className='app_card'>
-                  <img className='app_card_icon' src='/assets/images/4.svg' />
-                  <div className='app_card_content'>
-                    <div className='app_card_content_text'>
-                      <div className='app_card_content_text_top'>Lenster</div>
-                      <div className='app_card_content_text_bottom'>
-                        Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.
-                      </div>
-                    </div>
-                    <div className='app_card_content_button'>
-                      Launch
-                    </div>
-                  </div>
-                </div>
-                <div className='app_detail'>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                  <div className='app_detail_panel'>
-
-                  </div>
-                </div>
-              </div>
+              <AppCard
+                name={`NoSocial`}
+                icon={`/assets/images/nosocial.svg`}
+                desc={`NoSocial is a gate to the decentralized socials, which provides the achievement system to help user earn benefits.`}
+              />
+              <AppCard 
+                name={`Lenster`} 
+                icon={`/assets/images/4.svg`} 
+                desc={`Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.`} 
+              />
             </div>
           </div>
           <div className='apps_list'>
@@ -101,39 +52,16 @@ export default function AppsPage() {
               />
             </div>
             <div className='app_card_list'>
-              <div className='app_card_container'>
-                <div className='app_card'>
-                  <img className='app_card_icon' src='/assets/images/5.svg' />
-                  <div className='app_card_content'>
-                    <div className='app_card_content_text'>
-                      <div className='app_card_content_text_top'>Lenster</div>
-                      <div className='app_card_content_text_bottom'>
-                        Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.
-                      </div>
-                    </div>
-                    <div className='app_card_content_button'>
-                      Activate
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='app_card_container'>
-                <div className='app_card'>
-                  <img className='app_card_icon' src='/assets/images/6.svg' />
-                  <div className='app_card_content'>
-                    <div className='app_card_content_text'>
-                      <div className='app_card_content_text_top'>Lenster</div>
-                      <div className='app_card_content_text_bottom'>
-                        Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.
-                      </div>
-                    </div>
-                    <div className='app_card_content_button'>
-                      Activate
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ExploreApp 
+                name={'re: meme'} 
+                icon={'/assets/images/5.svg'} 
+                desc={`The last social media handle I'll ever have to create, my Lens profile is portable across any application powered by Lens Protocol.`} 
+              />
+              <ExploreApp 
+                name={'LensFrens'} 
+                icon={'/assets/images/6.svg'} 
+                desc={`Lenster is a composable, decentralized, and permissionless social media web app built with Lens Protocol.`} 
+              />
             </div>
           </div>
         </div>
