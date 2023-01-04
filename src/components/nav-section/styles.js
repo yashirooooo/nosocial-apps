@@ -1,8 +1,14 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { ListItemIcon, ListItemButton } from '@mui/material';
+import { Badge, ListItemIcon, ListItemButton } from '@mui/material';
 
 // ----------------------------------------------------------------------
+
+export const StyledBadge = styled(Badge)({
+  color: 'inherit',
+  left: -20,
+  position: 'relative'
+});
 
 export const StyledNavItem = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
   ...theme.typography.body2,
