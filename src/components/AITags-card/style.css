@@ -1,0 +1,10 @@
+.ai_tags_detail_panel {
+    margin-right: 20px;
+    width: 122px;
+    height: 122px;
+    background-color: rgba(213, 190, 252, 0.5);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

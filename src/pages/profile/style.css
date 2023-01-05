@@ -69,6 +69,14 @@
 
 .basic_info_data_down div {
     margin-right: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.basic_info_data_down div img {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
 }
 
 .profile_list {
@@ -82,12 +90,17 @@
 }
 
 .category_data_list {
-    height: 122px;
+    min-height: 122px;
     margin-top: 15px;
+    display: flex;
 }
 
 .category_data_list_cl {
     width: 100%;
     display: flex;
     margin-bottom: 10px;
+}
+
+.cl {
+    flex-direction: column;
 }
