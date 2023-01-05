@@ -76,14 +76,6 @@
     display: flex;
 }
 
-.app_detail_panel {
-    margin-right: 20px;
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background-color: rgba(213, 190, 252, 0.5);
-}
-
 .app_card_content_button {
     border: 2px solid;
     border-radius: 25px;
@@ -99,6 +91,7 @@
 
     width: 114px;
     height: 50px;
+    
 
     /* M3/state-layers/dark/primary/opacity-0.12 */
 
