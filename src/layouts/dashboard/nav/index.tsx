@@ -7,7 +7,6 @@ import { Box, Drawer } from '@mui/material';
 import useResponsive from '../../../hooks/useResponsive';
 // components
 import Logo from '../../../components/logo';
-import Scrollbar from '../../../components/scrollbar';
 import NavSection from '../../../components/nav-section';
 //
 import navConfig from './config';
@@ -36,19 +35,14 @@ export default function Nav({ openNav, onCloseNav }: Props) {
   }, [pathname]);
 
   const renderContent = (
-    <Scrollbar
-      sx={{
-        height: 1,
-        '& .simplebar-content': { height: 1, display: 'flex', flexDirection: 'column' },
-      }}
-    >
+    <div>
       <Box sx={{ px: 2.5, py: 3, display: 'inline-flex' }}>
         <Logo />
       </Box>
       <NavSection data={navConfig} />
 
       <Box sx={{ flexGrow: 1 }} />
-    </Scrollbar>
+    </div>
   );
 
   return (

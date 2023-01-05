@@ -96,7 +96,7 @@ export default function BenefitProgress({ icon, amount, author, name, tasks, pro
         <p>Profile NFT is the passport to explore the Lens universeThis benefit contains 6 tasks and will allow you choose your own handle name once you finished.</p>
       </Slide>
     </div> */}
-    <Collapse className='benefits_card_task_list' in={checked} timeout="auto" unmountOnExit>
+    <Collapse className='benefits_card_task_list' in={checked} timeout={0} unmountOnExit>
       <p>Profile NFT is the passport to explore the Lens universeThis benefit contains 6 tasks and will allow you choose your own handle name once you finished.</p>
       <Divider className='divider' />
       <ul>
