@@ -1,9 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
-import { Card, CardContent, TextField, Typography } from '@mui/material';
+import { TextField } from '@mui/material';
 import './style.css';
 import ActivityCard from 'src/components/activity-card';
 import ProfileBenefit from 'src/components/profile-benefit';
+import AchievementsDetailCard from 'src/components/achievements-detail-card';
+import AITagsCard from 'src/components/AITags-card';
 // components
 
 // ----------------------------------------------------------------------
@@ -40,9 +42,10 @@ export default function ProfileAppPage() {
           </div>
           <div className='basic_info_data_down'>
             <div id='address'>0x6C956B990179fcdfab0C323615f2a93af4A9a0ad |</div>
-            <div id='followings'>10 Followings |</div>
-            <div id='followers'>9,765 Followers |</div>
-            <div id='birthday'>Joined March 2020</div>
+            <div id='location'><img src='/assets/icons/location.svg' /> Palo Alto |</div>
+            <div id='followings'><img src='/assets/icons/twitter.svg' /> bobdean |</div>
+            <div id='followers'><img src='/assets/icons/link.svg' /> bobdean.org |</div>
+            <div id='birthday'><img src='/assets/icons/calendar.svg' /> Joined March 2020</div>
           </div>
         </div>
         <div className='profile_list'>
@@ -58,7 +61,10 @@ export default function ProfileAppPage() {
               />
             </div>
             <div className='category_data_list'>
-
+              <AchievementsDetailCard name={'Posts'} amount={10} />
+              <AchievementsDetailCard name={'Active Days'} amount={7} />
+              <AchievementsDetailCard fontSize={20} name={'Followers'} amount={1000} />
+              <AchievementsDetailCard name={'Videos'} amount={6 / 10} />
             </div>
           </div>
           <div className='category_container'>
@@ -73,7 +79,17 @@ export default function ProfileAppPage() {
               />
             </div>
             <div className='category_data_list'>
-
+              <AITagsCard 
+                name={'ETH'} 
+                type={'Analyzed'} 
+                date={'Sep 2022'}
+              />
+              <AITagsCard 
+                name={'dSocial'} 
+                type={'Analyzed'} 
+                date={'Sep 2022'}
+                fontSize={30}
+              />
             </div>
           </div>
           <div className='category_container'>
@@ -118,7 +134,7 @@ export default function ProfileAppPage() {
                 variant="standard"
               />
             </div>
-            <div className='category_data_list'>
+            <div className='category_data_list cl'>
               <div className='category_data_list_cl'>
                 <ProfileBenefit
                   icon={'/assets/images/image2.svg'}
@@ -132,27 +148,24 @@ export default function ProfileAppPage() {
                   amount={1.23}
                   unit={`Ethers`}
                   author={`lenster`}
-                  img={'/assets/images/image1.svg'}
+                  img={'/assets/images/matic.svg'}
                 />
               </div>
               <div className='category_data_list_cl'>
-                <div className='benefits_data_card'>
-                  <img id='icon' src='/assets/images/image2.svg' />
-                  <div id='desc'>
-                    <div id='top'>1.23 Ethers</div>
-                    <div id='bottom'>by lenster</div>
-                  </div>
-                  <img id='img' src='/assets/images/image1.svg' />
-                </div>
-
-                <div className='benefits_data_card'>
-                  <img id='icon' src='/assets/images/image2.svg' />
-                  <div id='desc'>
-                    <div id='top'>1.23 Ethers</div>
-                    <div id='bottom'>by lenster</div>
-                  </div>
-                  <img id='img' src='/assets/images/image1.svg' />
-                </div>
+                <ProfileBenefit 
+                  icon={'/assets/images/image2.svg'} 
+                  amount={1.23} 
+                  unit={'Ethers'} 
+                  author={'lenster'} 
+                  img={'/assets/images/fs.svg'} 
+                />
+                <ProfileBenefit 
+                  icon={'/assets/images/3.svg'} 
+                  amount={1.23} 
+                  unit={'Ethers'} 
+                  author={'lenster'} 
+                  img={'/assets/images/crust.svg'} 
+                /> 
               </div>
             </div>
           </div>
