@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './style.css';
 import Collapse from '@mui/material/Collapse';
 import { Divider, styled } from '@mui/material';
+import { supplyStatus } from 'src/api';
 
 interface ProgressCardProps extends BaseStyle {
     width: number,
@@ -69,8 +70,10 @@ export default function BenefitProgress({ icon, amount, author, name, tasks, pro
     const [checked, setChecked] = React.useState(false);
     // const containerRef = React.useRef(null);
   
-    const handleChange = () => {
+    const handleChange = async () => {
       setChecked((prev) => !prev);
+      const result = await supplyStatus();
+      console.log('result::', result)
     };
     
     return <div className='benefits_card'>
