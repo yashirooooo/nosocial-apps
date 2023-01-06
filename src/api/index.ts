@@ -14,14 +14,13 @@ let axiosInstance: AxiosInstance = axios.create({
     headers: {
         Accept: "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
-    },
-    // transformRequest: [
-    //     function (data) {
-    //         delete data.Authorization;
-    //         data = qs.stringify(data);
-    //         return data;
-    //     }
-    // ]
+        },
+    transformRequest: [
+        function (data) {
+            data = qs.stringify(data);
+            return data;
+        }
+    ]
 });
 
 // The axios instance intercepts the response
@@ -34,7 +33,6 @@ axiosInstance.interceptors.response.use(
         //         localStorage.setItem('app_token', response.data.token);
         //     }
         // }
-
         if (response.status === 200) {
             return response;
         } else {
@@ -59,14 +57,14 @@ axiosInstance.interceptors.response.use(
 axiosInstance.interceptors.request.use(
     (config: AxiosRequestConfig) => {
         const token = localStorage.getItem('app_token');
-        // if (token) {
-        //     config.headers = {
-        //         'Authorization': `Bearer ${token}`
-        //     }
-        // }
-        // config.headers = {
-        //     'Authorization': `Bearer ${token}`
-        // }
+        if (token) {
+            config.headers = {
+                'Authorization': `Bearer ${token}`
+            }
+        }
+        config.headers = {
+            'Authorization': `Bearer ${token}`
+        }
         return config;
     },
     (error: any) => {
@@ -74,7 +72,9 @@ axiosInstance.interceptors.request.use(
     }
 )
 
-export const supplyStatus = (): Promise<IResponse> => {
-    return axiosInstance.get('/api/supplyStatus?q=circulatingSupply').then(res => res?.data);
+export const supplyStatus = (): Promise<any> => {
+    return axiosInstance.get('/api/supplyStatus?q=circulatingSupply').then(res => {
+        return res;
+    });
 };
   
