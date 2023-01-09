@@ -10,7 +10,7 @@ export interface IResponse {
 
 let axiosInstance: AxiosInstance = axios.create({
     // baseURL: process.env.REACT_APP_BASE_URL,
-    baseURL: 'https://api-tokencap.crust.network',
+    baseURL: 'http://43.132.164.207:22222/api/v0',
     headers: {
         Accept: "application/json",
         "Content-Type": "application/x-www-form-urlencoded"
@@ -56,15 +56,15 @@ axiosInstance.interceptors.response.use(
 // Axios instance intercepts the request
 axiosInstance.interceptors.request.use(
     (config: AxiosRequestConfig) => {
-        const token = localStorage.getItem('app_token');
-        if (token) {
-            config.headers = {
-                'Authorization': `Bearer ${token}`
-            }
-        }
-        config.headers = {
-            'Authorization': `Bearer ${token}`
-        }
+        // const token = localStorage.getItem('app_token');
+        // if (token) {
+        //     config.headers = {
+        //         'Authorization': `Bearer ${token}`
+        //     }
+        // }
+        // config.headers = {
+        //     'Authorization': `Bearer ${token}`
+        // }
         return config;
     },
     (error: any) => {
@@ -72,8 +72,8 @@ axiosInstance.interceptors.request.use(
     }
 )
 
-export const supplyStatus = (): Promise<any> => {
-    return axiosInstance.get('/api/supplyStatus?q=circulatingSupply').then(res => {
+export const profileInfo = (id: string): Promise<any> => {
+    return axiosInstance.get('/account/profileInfo?id=' + id).then(res => {
         return res;
     });
 };

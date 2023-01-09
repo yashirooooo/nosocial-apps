@@ -9,6 +9,9 @@ import AITagsCard from 'src/components/AITags-card';
 import BasicInfo from 'src/components/basic-info';
 import { ProfileInfo } from 'src/components/types';
 import basic_info from '../../_mock/basic_info';
+import { useEffect, useState } from 'react';
+import profileId from 'src/_mock/profile_id';
+import { profileInfo } from 'src/api';
 // components
 
 // ----------------------------------------------------------------------
@@ -17,7 +20,19 @@ interface Props {
   info: ProfileInfo;
 }
 
+const defaultProfile = basic_info
+
 export default function ProfileAppPage() {
+
+  const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
+
+  useEffect(() => {
+    profileInfo(profileId).then(res => {
+      setBasicInfo({
+        info: res.data
+      })
+    })
+  }, [])
 
   return (
     <>
@@ -26,11 +41,11 @@ export default function ProfileAppPage() {
       </Helmet>
       <div>
         <div className='cover_img' >
-          <img src={basic_info.info.coverPicture} />
+          <img src={basicInfo.info.coverPicture} />
         </div>
         <div className='container'>
           <BasicInfo
-            info={basic_info.info}
+            info={basicInfo.info}
           />
           <div className='profile_list'>
             <div className='category_container'>
