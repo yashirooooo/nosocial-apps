@@ -6,9 +6,16 @@ import ActivityCard from 'src/components/activity-card';
 import ProfileBenefit from 'src/components/profile-benefit';
 import AchievementsDetailCard from 'src/components/achievements-detail-card';
 import AITagsCard from 'src/components/AITags-card';
+import BasicInfo from 'src/components/basic-info';
+import { ProfileInfo } from 'src/components/types';
+import basic_info from '../../_mock/basic_info';
 // components
 
 // ----------------------------------------------------------------------
+
+interface Props {
+  info: ProfileInfo;
+}
 
 export default function ProfileAppPage() {
 
@@ -19,34 +26,12 @@ export default function ProfileAppPage() {
       </Helmet>
       <div>
         <div className='cover_img' >
-          <img src='/assets/images/1028306.png' />
+          <img src={basic_info.info.coverPicture} />
         </div>
         <div className='container'>
-          <div className='basic'>
-            <div className='basic_info'>
-              <div className='basic_info_avatar'>
-                <img src='/assets/images/-yqkYEms_400x400.jpg'></img>
-              </div>
-            </div>
-          </div>
-          <div className='basic_info_data'>
-            <div id='name'>Bob Dean</div>
-            <div id='email'>@bob.lens</div>
-            <div className='basic_info_data_up'>
-              <div>Music is my life</div>
-            </div>
-            <div className='basic_info_data_up'>
-              <div>10 Followings</div>
-              <div>9,765 Followers</div>
-            </div>
-            <div className='basic_info_data_down'>
-              <div id='address'>0x6C956B990179fcdfab0C323615f2a93af4A9a0ad |</div>
-              <div id='location'><img src='/assets/icons/location.svg' /> Palo Alto |</div>
-              <div id='followings'><img src='/assets/icons/twitter.svg' /> bobdean |</div>
-              <div id='followers'><img src='/assets/icons/link.svg' /> bobdean.org |</div>
-              <div id='birthday'><img src='/assets/icons/calendar.svg' /> Joined March 2020</div>
-            </div>
-          </div>
+          <BasicInfo
+            info={basic_info.info}
+          />
           <div className='profile_list'>
             <div className='category_container'>
               <div>
