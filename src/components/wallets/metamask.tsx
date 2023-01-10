@@ -19,7 +19,7 @@ export const ChainId = {
     MATIC: 137
 }
 
-const injected = new InjectedConnector({ supportedChainIds: [ChainId.MATIC] })
+const injected = new InjectedConnector({ supportedChainIds: [ChainId.MATIC, ChainId.ETH] })
 
 export const MetaMaskContext = React.createContext({} as unknown as MetaMaskContextState)
 
@@ -46,7 +46,7 @@ export const MetaMaskProvider = ({ children }: Props) => {
             await deactivate()
             setIsConnected(false)
         } catch (error) {
-            console.log('Error on disconnnect: ', error)
+            console.log('Error on disconnect: ', error)
         }
     }
 

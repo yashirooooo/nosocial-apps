@@ -69,7 +69,7 @@ export default function BenefitProgress({ icon, amount, author, name, tasks, pro
     const [checked, setChecked] = React.useState(false);
     // const containerRef = React.useRef(null);
   
-    const handleChange = () => {
+    const handleChange = async () => {
       setChecked((prev) => !prev);
     };
     

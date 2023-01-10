@@ -14,7 +14,7 @@ export default function Router() {
     const routes = useRoutes([
         {
             path: '/',
-            element: <Navigate to="/dashboard/profile" replace/>
+            element: <Navigate to="/login" replace/>
         },   
         {
              path: '/login',

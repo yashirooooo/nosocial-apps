@@ -1,6 +1,11 @@
 import { format, getTime, formatDistanceToNow } from 'date-fns';
+import moment from 'moment';
 
 // ----------------------------------------------------------------------
+
+export function fMonthlyDate(date) {
+  return moment(date).format('MMM YYYY');
+}
 
 export function fDate(date, newFormat) {
   const fm = newFormat || 'dd MMM yyyy';
