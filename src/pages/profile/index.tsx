@@ -27,11 +27,10 @@ const defaultProfile = basic_info
 export default function ProfileAppPage() {
 
   const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
-  let location = useLocation();
+  const location = useLocation();
 
-  const { account } = location.state;
+  const { state } = location;
 
-  console.log('account::profile', account)
   useEffect(() => {
     profileInfo(profileId).then(res => {
       setBasicInfo({
