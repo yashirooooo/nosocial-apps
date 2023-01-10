@@ -9,6 +9,7 @@ export interface ProfileInfo {
         followers: number;
         following: number;
         attributes: Attributes;
+        createdAt: string;
     }
 }
 

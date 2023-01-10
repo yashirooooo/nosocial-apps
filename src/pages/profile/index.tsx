@@ -16,6 +16,8 @@ import { profileInfo } from 'src/api';
 
 // ----------------------------------------------------------------------
 
+import { useLocation } from 'react-router-dom';
+
 interface Props {
   info: ProfileInfo;
 }
@@ -25,7 +27,11 @@ const defaultProfile = basic_info
 export default function ProfileAppPage() {
 
   const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
+  let location = useLocation();
 
+  const { account } = location.state;
+
+  console.log('account::profile', account)
   useEffect(() => {
     profileInfo(profileId).then(res => {
       setBasicInfo({

@@ -1,9 +1,11 @@
+import { fNumber } from 'src/utils/formatNumber';
+import { fMonthlyDate } from 'src/utils/formatTime';
 import { ProfileInfo } from '../types';
 import './style.css';
 
 type Props = ProfileInfo
 
-export default function BasicInfo({ info: { id, picture, name, handle, bio, followers, following, attributes: { location, twitter, website } } }: Props) {
+export default function BasicInfo({ info: { id, picture, name, handle, bio, followers, following, attributes: { location, twitter, website }, createdAt } }: Props) {
     return <div className='basic_info_container'>
     <div className='basic'>
       <div className='basic_info'>
@@ -19,15 +21,15 @@ export default function BasicInfo({ info: { id, picture, name, handle, bio, foll
         <div>{bio}</div>
       </div>
       <div className='basic_info_data_up'>
-        <div>{following} Followings</div>
-        <div>{followers} Followers</div>
+        <div>{fNumber(following)} Followings</div>
+        <div>{fNumber(followers)} Followers</div>
       </div>
       <div className='basic_info_data_down'>
         <div id='address'>{id} |</div>
-        <div id='location'><img src='/assets/icons/location.svg' /> {location} |</div>
-        <div id='followings'><img src='/assets/icons/twitter.svg' /> {twitter} |</div>
-        <div id='followers'><img src='/assets/icons/link.svg' /> {website} |</div>
-        <div id='birthday'><img src='/assets/icons/calendar.svg' /> Joined March 2020</div>
+        {location && <div id='location'><img src='/assets/icons/location.svg' /> {location} |</div>}
+        {twitter && <div id='followings'><img src='/assets/icons/twitter.svg' /> {twitter} |</div>}
+        {website && <div id='followers'><img src='/assets/icons/link.svg' /> {website} |</div>}
+        {createdAt && <div id='created_at'><img src='/assets/icons/calendar.svg' /> Joined {fMonthlyDate(createdAt)}</div>}
       </div>
     </div>
   </div>

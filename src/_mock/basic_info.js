@@ -13,6 +13,7 @@ const basic_info = {
           website: 'crust.network',
           twitter: 'ndsmyy',
         },
+        createdAt: "2022-11-01T17:03:49.000Z"
     }
 }
 

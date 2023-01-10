@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { fNumber } from 'src/utils/formatNumber';
 import './style.css';
 
 const DetailPanel = styled('div')(({ color = '#FFFFFF' }: PanelProps) => ({
@@ -43,7 +44,7 @@ interface Props {
 
 export default function AchievementsDetailCard({ name, amount, fontSize }: Props) {
     return <DetailPanel className='app_detail_panel'>
-        <DetailAmount fontSize={fontSize}>{amount}</DetailAmount>
+        <DetailAmount fontSize={fontSize}>{fNumber(amount)}</DetailAmount>
         <DetailCategory>{name}</DetailCategory>
     </DetailPanel>
 }
