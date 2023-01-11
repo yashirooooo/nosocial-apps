@@ -1,10 +1,14 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useContext } from "react";
+import { profileInfo } from "src/api";
+import { ProfileInfo } from "src/components/types";
 import store from 'store';
+import basic_info from 'src/_mock/basic_info';
 
 export interface LoginUser {
     address: string;
     profileId: string;
+    basicInfo: ProfileInfo;
     setLoginUser: (u: User) => void
 }
 
@@ -13,12 +17,25 @@ interface User {
     profileId: string;
 }
 
+const defaultProfile = basic_info
+
 export function useLoginUser(key = 'login'): LoginUser {
     const [address, setAddress] = useState<string>('');
     const [profileId, setProfileId] = useState<string>('');
+    const [basicInfo, setBasicInfo] = useState<ProfileInfo>(defaultProfile);
+
     const setLoginUser = useCallback((loginUser: User) => {
         setAddress(loginUser.address)
         setProfileId(loginUser.profileId)
+        if (loginUser.profileId) {
+            profileInfo(loginUser.profileId).then(res => {
+              if (res) {
+                setBasicInfo({
+                  info: res
+                })
+              }
+            })
+        }
         store.set(key, loginUser);
     }, [key])
 
@@ -33,10 +50,11 @@ export function useLoginUser(key = 'login'): LoginUser {
         const loginUser = {
             address,
             profileId,
+            basicInfo,
             setLoginUser
         }
         return loginUser;
-    }, [address, profileId, setLoginUser])
+    }, [address, profileId, setLoginUser, basicInfo])
 
     return user;
 }
