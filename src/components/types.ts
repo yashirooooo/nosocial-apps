@@ -18,3 +18,9 @@ interface Attributes {
     website: string;
     twitter: string;
 }
+
+export interface Profile {
+    handle: string;
+    id: string;
+    name: string;
+}

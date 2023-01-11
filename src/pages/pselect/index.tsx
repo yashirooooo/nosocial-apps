@@ -2,20 +2,46 @@ import { Button, Grid } from '@mui/material';
 import Logo from '../../components/logo';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { getProfiles } from 'src/api';
+import address from 'src/_mock/address';
+import { Profile } from 'src/components/types';
+import { useContextLoginUser } from 'src/lib/hooks';
 
 function PselectPage() {
 
   const navigate = useNavigate();
 
-  const profiles = ["@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  "@kkkkk.lens", "@mmmrbob.lens", "@carlos.lens"]
+  const location = useLocation();
+  const user = useContextLoginUser();
 
-  const onClick = () => {
-    navigate('/dashboard/profile')
+  const { state } = location;
+
+  const [profiles, setProfiles] = useState<Profile[]>([]);
+
+  // const profiles = ["@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
+  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
+  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
+  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
+  // "@kkkkk.lens", "@mmmrbob.lens", "@carlos.lens"]
+
+  const onClick = (profileId: string) => {
+    user.setLoginUser({
+      address,
+      profileId
+    })
+    navigate('/dashboard/profile', { state: { profileId }})
   }
+
+  useEffect(() => {
+    if (state.address) {
+      // TODO: change address to state.address
+      getProfiles(address).then(res => {
+        setProfiles(res)
+      })
+    }
+  }, [])
 
   return (
     <div className="pselect">
@@ -23,9 +49,9 @@ function PselectPage() {
       <div className="pselect-ps">Please select the profile you want to log in</div>
       <Grid container className="pselect-profiles" justifyContent="center" spacing={5}>
         {profiles.map((value) => (
-          <Grid key={value} item>
-            <Button className="pselect-profile-button" variant="outlined" onClick={onClick}>
-              {value}
+          <Grid key={value.id} item>
+            <Button className="pselect-profile-button" variant="outlined" onClick={() => onClick(value.id)}>
+              {value.name}
             </Button>
           </Grid>
         ))}

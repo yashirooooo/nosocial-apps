@@ -15,8 +15,7 @@ import { profileInfo } from 'src/api';
 // components
 
 // ----------------------------------------------------------------------
-
-import { useLocation } from 'react-router-dom';
+import { useContextLoginUser } from 'src/lib/hooks';
 
 interface Props {
   info: ProfileInfo;
@@ -26,18 +25,21 @@ const defaultProfile = basic_info
 
 export default function ProfileAppPage() {
 
-  const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
-  const location = useLocation();
+  const user = useContextLoginUser();
+  // const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
+  // console.log('user::::', user)
 
-  const { state } = location;
-
-  useEffect(() => {
-    profileInfo(profileId).then(res => {
-      setBasicInfo({
-        info: res.data
-      })
-    })
-  }, [])
+  // useEffect(() => {
+  //   if (user) {
+  //     profileInfo(user.profileId).then(res => {
+  //       if (res) {
+  //         setBasicInfo({
+  //           info: res
+  //         })
+  //       }
+  //     })
+  //   }
+  // }, [user])
 
   return (
     <>
@@ -46,11 +48,11 @@ export default function ProfileAppPage() {
       </Helmet>
       <div>
         <div className='cover_img' >
-          <img src={basicInfo.info.coverPicture} />
+          <img src={user.basicInfo.info.coverPicture} />
         </div>
         <div className='container'>
           <BasicInfo
-            info={basicInfo.info}
+            info={user.basicInfo.info}
           />
           <div className='profile_list'>
             <div className='category_container'>

@@ -72,9 +72,21 @@ axiosInstance.interceptors.request.use(
     }
 )
 
+export const whiteList = (address: string): Promise<any> => {
+    return axiosInstance.get('/account/whitelist?address=' + address).then(res => {
+        return res.data;
+    });
+};
+
 export const profileInfo = (id: string): Promise<any> => {
     return axiosInstance.get('/account/profileInfo?id=' + id).then(res => {
-        return res;
+        return res.data;
+    });
+};
+
+export const getProfiles = (address: string): Promise<any> => {
+    return axiosInstance.get('/account/profiles?address=' + address).then(res => {
+        return res.data;
     });
 };
   

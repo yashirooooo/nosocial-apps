@@ -5,6 +5,7 @@ import Logo from '../../components/logo';
 import './style.css';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { whiteList } from 'src/api';
 
 function LoginPage() {
     const { connect, disconnect, account, isConnected } = useMetaMask();
@@ -12,8 +13,13 @@ function LoginPage() {
 
     useEffect(() => {
         if (account) {
-            //TODO: Query whether it is in the whitelist 
-            navigate('/login/select', { state: { account } })
+            whiteList(account).then(res => {
+                console.log('white list::', res)
+                // TODO: !res.inWhitelist => res.inWhitelist
+                if (res && !res.inWhitelist) {
+                    navigate('/login/select', { state: { address: account } })
+                }
+            })
         }
     }, [account])
 
