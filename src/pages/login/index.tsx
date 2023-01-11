@@ -13,9 +13,9 @@ function LoginPage() {
 
     useEffect(() => {
         if (account) {
-            //TODO: Query whether it is in the whitelist 
             whiteList(account).then(res => {
                 console.log('white list::', res)
+                // TODO: !res.inWhitelist => res.inWhitelist
                 if (res && !res.inWhitelist) {
                     navigate('/login/select', { state: { address: account } })
                 }
