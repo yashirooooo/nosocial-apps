@@ -59,7 +59,7 @@ export default function AchievementsDetailCard({ name, desc, status, img }: Prop
             <DetailImg src={img} />
             { status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
             { status === 'achieved' && <StatusIcon color='#bfbfbf'> <Star className='status_icon' /> </StatusIcon>}
-            { status === 'ready' && <StatusIcon color='#00ff80'> <Star className='status_icon' /> </StatusIcon>}
+            { status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
         </DetailImgContainer>
         <DetailCategory>{name}</DetailCategory>
         <DetailCategory>{status}</DetailCategory>

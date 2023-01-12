@@ -90,12 +90,6 @@ export default function ProfileAppPage() {
                   type={'Analyzed'}
                   date={'Sep 2022'}
                 />
-                <AITagsCard
-                  name={'dSocial'}
-                  type={'Analyzed'}
-                  date={'Sep 2022'}
-                  fontSize={30}
-                />
               </div>
             </div>
             <div className='category_container'>
