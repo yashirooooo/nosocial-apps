@@ -1,11 +1,16 @@
 .app_detail_panel {
     margin-right: 20px;
     width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    background-color: rgba(213, 190, 252, 0.5);
+    height: 180px;
+    /* border-radius: 50%; */
+    /* background-color: rgba(213, 190, 252, 0.5); */
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+}
+
+.status_icon {
+    height: 36px;
+    width: 36px;
 }

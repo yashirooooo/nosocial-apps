@@ -1,25 +1,34 @@
 import styled from '@emotion/styled';
-import { fNumber } from 'src/utils/formatNumber';
 import './style.css';
+import { Star, StarHalf } from "@mui/icons-material";
 
 const DetailPanel = styled('div')(({ color = '#FFFFFF' }: PanelProps) => ({
     color: color,
 }));
 
-const DetailAmount = styled('div')(({ fontSize = 50 }: PanelProps)=> ({
-    fontFamily: 'Roboto',
-    fontStyle: 'normal',
-    fontWeight: '800',
-    fontSize: fontSize + 'px',
-    lineHeight: '24px',
-    /* or 48% */
+const DetailImgContainer = styled('div')(()=> ({
+    height: '120px',
+    width: '120px',
+    overflow: 'hidden',
+    position: 'relative'
+}))
 
+const DetailImg = styled('img')(()=> ({
+    height: '120px',
+    width: '120px',
+}))
+
+const StatusIcon = styled('div')(({ color = '#FFFFFF' }: PanelProps)=> ({
+    position: 'absolute',
     display: 'flex',
+    right: '0px',
+    bottom: '0px',
+    height: '36px',
+    width: '36px',
+    color: color,
+    fontSize: '20px',
     alignItems: 'center',
-    textAlign: 'center',
-    letterSpacing: '0.5px',
-    height: '48px',
-    color: '#FFFFFF',
+    justifyContent: 'center'
 }))
 
 const DetailCategory = styled('div')(() => ({
@@ -37,14 +46,22 @@ interface PanelProps {
 }
 
 interface Props {
-    amount: number;
+    desc?: string;
     name: string;
-    fontSize?: number
+    status?: string;
+    img?: string;
 }
 
-export default function AchievementsDetailCard({ name, amount, fontSize }: Props) {
+export default function AchievementsDetailCard({ name, desc, status, img }: Props) {
+
     return <DetailPanel className='app_detail_panel'>
-        <DetailAmount fontSize={fontSize}>{fNumber(amount)}</DetailAmount>
+        <DetailImgContainer>
+            <DetailImg src={img} />
+            { status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
+            { status === 'achieved' && <StatusIcon color='#bfbfbf'> <Star className='status_icon' /> </StatusIcon>}
+            { status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
+        </DetailImgContainer>
         <DetailCategory>{name}</DetailCategory>
+        <DetailCategory>{status}</DetailCategory>
     </DetailPanel>
 }

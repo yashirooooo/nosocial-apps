@@ -67,10 +67,10 @@ export default function ProfileAppPage() {
                 />
               </div>
               <div className='category_data_list'>
-                <AchievementsDetailCard name={'Posts'} amount={10} />
-                <AchievementsDetailCard name={'Active Days'} amount={7} />
-                <AchievementsDetailCard fontSize={20} name={'Followers'} amount={1000} />
-                <AchievementsDetailCard name={'Videos'} amount={6 / 10} />
+                <AchievementsDetailCard name={'Posts'} status='achieved' img='/assets/images/achieved.png' />
+                <AchievementsDetailCard name={'Active Days'} status='ready' img='/assets/images/ready.png' />
+                <AchievementsDetailCard name={'Followers'} status='ready' img='/assets/images/ready.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
               </div>
             </div>
             <div className='category_container'>
@@ -89,12 +89,6 @@ export default function ProfileAppPage() {
                   name={'ETH'}
                   type={'Analyzed'}
                   date={'Sep 2022'}
-                />
-                <AITagsCard
-                  name={'dSocial'}
-                  type={'Analyzed'}
-                  date={'Sep 2022'}
-                  fontSize={30}
                 />
               </div>
             </div>

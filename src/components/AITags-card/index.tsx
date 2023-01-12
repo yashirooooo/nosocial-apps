@@ -44,8 +44,9 @@ interface Props {
 
 export default function AITagsCard({ name, type, fontSize, date }: Props) {
     return <DetailPanel className='ai_tags_detail_panel'>
-        <AITagsDetailAmount fontSize={fontSize}>{name}</AITagsDetailAmount>
+        {/* <AITagsDetailAmount fontSize={fontSize}>{name}</AITagsDetailAmount>
         <AITagsDetailCategory>{type}</AITagsDetailCategory>
-        <AITagsDetailCategory>{date}</AITagsDetailCategory>
+        <AITagsDetailCategory>{date}</AITagsDetailCategory> */}
+        <img src='/assets/images/ai.png' />
     </DetailPanel>
 }

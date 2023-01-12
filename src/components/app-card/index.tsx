@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import AppDetailPanel from '../achievements-detail-card';
+import AchievementDetailCard from '../achievements-detail-card';
 import './style.css';
 
 interface Props {
@@ -26,10 +26,10 @@ function AppCard({ icon, name, desc }: Props) {
             </div>
         </div>
         <div className='app_detail'>
-            <AppDetailPanel name={'Posts'} amount={10} />
-            <AppDetailPanel name={'Active Days'} amount={7} />
-            <AppDetailPanel fontSize={20} name={'Followers'} amount={1000} />
-            <AppDetailPanel name={'Videos'} amount={6 / 10} />
+            <AchievementDetailCard name={'Posts'} status="achieved" />
+            <AchievementDetailCard name={'Active Days'} status="ready" />
+            <AchievementDetailCard name={'Followers'} status="ready" />
+            <AchievementDetailCard name={'Videos'} status="inprogress" />
         </div>
     </div>
 }
