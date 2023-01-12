@@ -48,7 +48,7 @@ export default function ProfileAppPage() {
       </Helmet>
       <div>
         <div className='cover_img' >
-          <img src={user.basicInfo.info.coverPicture} />
+          <img src={'https://images.hdqwalls.com/wallpapers/colorful-neon-city-4k-tx.jpg'} />
         </div>
         <div className='container'>
           <BasicInfo
@@ -85,11 +85,7 @@ export default function ProfileAppPage() {
                 />
               </div>
               <div className='category_data_list'>
-                <AITagsCard
-                  name={'ETH'}
-                  type={'Analyzed'}
-                  date={'Sep 2022'}
-                />
+                <AITagsCard />
               </div>
             </div>
             <div className='category_container'>

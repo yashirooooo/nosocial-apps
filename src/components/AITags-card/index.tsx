@@ -36,17 +36,11 @@ interface PanelProps {
 }
 
 interface Props {
-    type: string;
-    name: string;
-    fontSize?: number;
-    date: string;
+    img?: string;
 }
 
-export default function AITagsCard({ name, type, fontSize, date }: Props) {
+export default function AITagsCard({ img }: Props) {
     return <DetailPanel className='ai_tags_detail_panel'>
-        {/* <AITagsDetailAmount fontSize={fontSize}>{name}</AITagsDetailAmount>
-        <AITagsDetailCategory>{type}</AITagsDetailCategory>
-        <AITagsDetailCategory>{date}</AITagsDetailCategory> */}
-        <img src='/assets/images/ai.png' />
+        <img src='https://pics.nosocial.xyz/0x05-1673492263.png' />
     </DetailPanel>
 }

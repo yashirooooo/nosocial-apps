@@ -1,7 +1,7 @@
 const basic_info = {
     info: {
         picture: '/assets/images/default_user.png',
-        coverPicture: '/assets/images/cover.jpg',
+        coverPicture: 'https://images.hdqwalls.com/wallpapers/colorful-neon-city-4k-tx.jpg',
         id: '0x123',
         name: 'Bobdean',
         handle: '@bobdean',

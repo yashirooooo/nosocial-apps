@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import './style.css';
-import { Star, StarHalf } from "@mui/icons-material";
+import { Star, StarHalf, CheckCircle } from "@mui/icons-material";
 
 const DetailPanel = styled('div')(({ color = '#FFFFFF' }: PanelProps) => ({
     color: color,
@@ -58,7 +58,7 @@ export default function AchievementsDetailCard({ name, desc, status, img }: Prop
         <DetailImgContainer>
             <DetailImg src={img} />
             { status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
-            { status === 'achieved' && <StatusIcon color='#bfbfbf'> <Star className='status_icon' /> </StatusIcon>}
+            { status === 'achieved' && <StatusIcon color='#66ff59'> <CheckCircle className='status_icon' /> </StatusIcon>}
             { status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
         </DetailImgContainer>
         <DetailCategory>{name}</DetailCategory>
