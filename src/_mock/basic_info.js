@@ -1,6 +1,6 @@
 const basic_info = {
     info: {
-        picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXPO72dVmHStLI2IRze-EZDlOinFKlHbMaAw&usqp=CAU',
+        picture: '/assets/images/default_user.png',
         coverPicture: '/assets/images/cover.jpg',
         id: '0x123',
         name: 'Bobdean',
