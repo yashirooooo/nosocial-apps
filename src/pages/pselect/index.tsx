@@ -31,7 +31,7 @@ function PselectPage() {
       address,
       profileId
     })
-    navigate('/dashboard/profile', { state: { profileId }})
+    navigate('/dashboard/profile')
   }
 
   useEffect(() => {

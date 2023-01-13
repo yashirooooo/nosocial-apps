@@ -18,7 +18,7 @@ export default function ExploreApp({ icon, name, desc }: Props) {
                 
             </div>
         </div>
-        <div className='app_card_content_button'>
+        <div className='app_card_content_button' onClick={() => {console.log('haha')}}>
             Activate
         </div>
     </div>

@@ -4,7 +4,7 @@ import { Container, TextField, Typography } from '@mui/material';
 // components
 import './style.css';
 import AppCard from 'src/components/app-card';
-import ExploreApp from 'src/components/explore-app';
+import ExploreApp from 'src/components/app-card/explore-app';
 // ----------------------------------------------------------------------
 
 export default function AppsPage() {

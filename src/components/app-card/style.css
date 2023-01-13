@@ -102,7 +102,7 @@
     border: 2px solid;
     border-radius: 25px;
     right: 35px;
-    top: 46px;
+    top: 56px;
     position: absolute; 
     display: flex;
     flex-direction: row;
@@ -125,4 +125,5 @@
     order: 0;
     align-self: stretch;
     flex-grow: 1;  
+    cursor: pointer;
 }

@@ -21,10 +21,11 @@ function AppCard({ icon, name, desc }: Props) {
                         {desc}
                     </div>
                 </div>
-                <div className='app_card_content_button'>
-                    Launch
-                </div>
+                
             </div>
+        </div>
+        <div className='app_card_content_button' onClick={() => {console.log('hehe')}}>
+            Launch
         </div>
         <div className='app_detail'>
             <AchievementDetailCard name={'Posts'} status="achieved" />
