@@ -47,18 +47,14 @@ interface PanelProps {
 }
 
 interface Props {
-    desc?: string;
-    name: string;
-    status?: string;
-    img?: string;
     achievement: ProfileBaseAchievement;
 }
 
-export default function AchievementsDetailCard({ name, desc, status, img, achievement }: Props) {
+export default function AchievementsDetailCard({ achievement }: Props) {
 
     return <DetailPanel className='app_detail_panel'>
         <DetailImgContainer>
-            <DetailImg src={img} />
+            <DetailImg src={achievement.picture} />
             { achievement.status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
             { achievement.status === 'achieved' && <StatusIcon color='#66ff59'> <CheckCircle className='status_icon' /> </StatusIcon>}
             { achievement.status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}

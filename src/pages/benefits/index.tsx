@@ -96,12 +96,6 @@ export default function BenefitsPage({ benefitBaseInfo }: Props) {
               benefitBaseInfo?.inProgress && 
               benefitBaseInfo?.inProgress.map(benefitBase => 
                 <BenefitProgress 
-                  tasks={tasks2} 
-                  progress={0.3}
-                  name={'MATIC'}
-                  author={'NoSocial'}
-                  amount={70}
-                  icon={'/assets/images/3.svg'}
                   benefitBase={benefitBase}
                 />
               )
@@ -173,12 +167,6 @@ export default function BenefitsPage({ benefitBaseInfo }: Props) {
               benefitBaseInfo?.notStart.map((benefitBase, key) => 
                 <BenefitProgress
                   key={key} 
-                  tasks={tasks2}
-                  progress={0.3}
-                  name={'MATIC'}
-                  author={'NoSocial'}
-                  amount={70}
-                  icon={'/assets/images/3.svg'}
                   benefitBase={benefitBase}
                 />
               ) : <></>

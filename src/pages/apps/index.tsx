@@ -89,9 +89,6 @@ export default function AppsPage({ appBaseInfo }: Props) {
                   appBaseInfo?.notStart.map((appBase, index) =>
                     <ExploreApp
                       key={index}
-                      name={`NoSocial`}
-                      icon={`https://i04piccdn.sogoucdn.com/2f1390c681b05d27`}
-                      desc={`NoSocial is a gate to the decentralized socials, which provides the achievement system to help user earn benefits.`}
                       // link='https://www.baidu.com'
                       appBase={appBase}
                     /> 

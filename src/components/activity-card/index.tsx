@@ -17,7 +17,7 @@ export default function ActivityCard({name, number, lastweek }: Props) {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {number ? number : 0}
         </Typography>
-        {
+        {/* {
             (lastweek && lastweek > 0) ? 
             <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
                 +{lastweek} last week
@@ -25,7 +25,10 @@ export default function ActivityCard({name, number, lastweek }: Props) {
             <Typography variant="body2" sx={{ color: '#EF8F8F' }}>
                 {lastweek} last week
             </Typography>
-        }       
+        }        */}
+        <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
+            +{lastweek ? lastweek : 0} last week
+        </Typography>
       </CardContent>
     </Card>
   </div>

@@ -1,13 +1,10 @@
 import { AppBase } from "src/components/types";
 
 interface Props {
-    icon?: string;
-    name?: string;
-    desc?: string;
     appBase: AppBase;
 }
 
-export default function ExploreApp({ icon, name, desc, appBase }: Props) {
+export default function ExploreApp({ appBase }: Props) {
     const navigate = () => {
         if (appBase?.url) {
             window.open(appBase.url)

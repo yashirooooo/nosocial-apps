@@ -52,7 +52,7 @@ function AppCard({ icon, name, desc, link, appBase }: Props) {
             {
                 (appBase.achievements && appBase.achievements.length) ?
                 appBase.achievements.map(achievement => 
-                    <AchievementDetailCard name={'Posts'} status='achieved' img='/assets/images/achieved.png' achievement={achievement} 
+                    <AchievementDetailCard achievement={achievement} 
                 />) : <></>
             }
             {/* <AchievementDetailCard name={'Posts'} status="achieved" achievement={achievement} />

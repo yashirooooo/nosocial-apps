@@ -2,11 +2,6 @@ import { ProfileBaseBenefit } from '../types';
 import './style.css';
 
 interface Props {
-    icon: string;
-    amount: number;
-    unit: string;
-    author: string;
-    img: string;
     benefit: ProfileBaseBenefit;
 }
 

@@ -50,27 +50,10 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                     (achievement, key) => 
                     <AchievementsDetailCard
                       key={key}
-                      name={'Posts'} 
-                      status='achieved' 
-                      img='/assets/images/achieved.png' 
                       achievement={achievement} 
                     />)
                   : <></>
                 }
-                {/* <AchievementsDetailCard name={'Posts'} status='achieved' img='/assets/images/achieved.png' />
-                <AchievementsDetailCard name={'Active Days'} status='ready' img='/assets/images/ready.png' />
-                <AchievementsDetailCard name={'Followers'} status='ready' img='/assets/images/ready.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
-                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' /> */}
               </div>
             </div>
             <div className='category_container'>
@@ -85,7 +68,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                 />
               </div>
               <div className='category_data_list'>
-                <AITagsCard />
+                <AITagsCard img={profileInfo?.aiTags?.picture} />
               </div>
             </div>
             <div className='category_container'>
@@ -139,11 +122,6 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                   profileInfo.benefits.map((benefit, key) => 
                     <ProfileBenefit
                       key={key}
-                      icon={'/assets/images/image2.svg'}
-                      amount={1.23}
-                      unit={`Ethers`}
-                      author={`lenster`}
-                      img={'/assets/images/image1.svg'}
                       benefit={benefit}
                     />
                   ) : <></>

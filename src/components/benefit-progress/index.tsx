@@ -37,18 +37,12 @@ interface Task {
 }
 
 interface Props {
-  amount: number;
-  name: string;
-  author: string;
-  tasks?: Task[];
-  progress: number;
-  icon: string;
   fontColor?: string;
   color?: string;
   benefitBase?: BenefitBase;
 }
 
-export default function BenefitProgress({ icon, amount, author, name, tasks, fontColor = '#FFFFFF', color = '#8247E5', benefitBase }: Props) {
+export default function BenefitProgress({ fontColor = '#FFFFFF', color = '#8247E5', benefitBase }: Props) {
   // bar with = progress * 594
   const [barWidth, setBarWidth] = React.useState(0);
   const progress = useMemo(() => {
@@ -96,9 +90,9 @@ export default function BenefitProgress({ icon, amount, author, name, tasks, fon
         <Bar width={barWidth} color={color} />
         <TextDiv color={fontColor} id='text'>
           <div>
-            <span id='amount'>{amount}</span>
-            <span id='unit'>{name}</span>
-            <span id='by'>By: {author}</span>
+            <span id='amount'>{benefitBase?.name}</span>
+            {/* <span id='unit'>{name}</span> */}
+            <span id='by'>By: {benefitBase?.provider}</span>
           </div>
         </TextDiv>
         <div className='benefits_card_progress_label'>
