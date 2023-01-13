@@ -29,7 +29,7 @@ function AppCard({ icon, name, desc, link, appBase }: Props) {
     }, [appBase?.activities?.collects, appBase?.activities?.comments, appBase?.activities?.mirrors, appBase?.activities?.posts])
 
     const navigate = () => {
-        if (link) {
+        if (appBase.url) {
             window.open(appBase.url)
         }
     }

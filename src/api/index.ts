@@ -269,3 +269,9 @@ export const benefitsBase = (profileId: string) => {
         return res.data;
     });
 }
+
+export const collect = (profileId: string, achvId: string) => {
+    return axiosInstance.post('/achievement/collect?id=' + profileId + '&achvId=' + achvId).then(res => {
+        return res.data;
+    });
+}
