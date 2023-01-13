@@ -10,7 +10,7 @@ import benefits from "src/_mock/benefits";
 export interface LoginUser {
     address: string;
     profileId: string;
-    basicInfo: ProfileInfo;
+    basicInfo?: ProfileInfo;
     appBaseInfo?: AppBaseInfo;
     benefitBaseInfo?: BenefitBaseInfo;
     setLoginUser: (u: User) => void
@@ -28,9 +28,9 @@ const defaultBenefits = benefits
 export function useLoginUser(key = 'login'): LoginUser {
     const [address, setAddress] = useState<string>('');
     const [profileId, setProfileId] = useState<string>('');
-    const [basicInfo, setBasicInfo] = useState<ProfileInfo>(defaultProfile);
-    const [appBaseInfo, setAppBaseInfo] = useState<AppBaseInfo>(defaultApps);
-    const [benefitBaseInfo, setBenefitBaseInfo] = useState<BenefitBaseInfo>(defaultBenefits);
+    const [basicInfo, setBasicInfo] = useState<ProfileInfo>();
+    const [appBaseInfo, setAppBaseInfo] = useState<AppBaseInfo>();
+    const [benefitBaseInfo, setBenefitBaseInfo] = useState<BenefitBaseInfo>();
 
     const setLoginUser = useCallback((loginUser: User) => {
         setAddress(loginUser.address)
@@ -43,21 +43,21 @@ export function useLoginUser(key = 'login'): LoginUser {
                 setBasicInfo(defaultProfile)
               }
             })
-            appsBase(loginUser.profileId).then(res => {
-                if (res) {
-                    setAppBaseInfo(res)
-                } else {
-                    setAppBaseInfo(defaultApps)
-                }
-            })
+            // appsBase(loginUser.profileId).then(res => {
+            //     if (res) {
+            //         setAppBaseInfo(res)
+            //     } else {
+            //         setAppBaseInfo(defaultApps)
+            //     }
+            // })
 
-            benefitsBase(loginUser.profileId).then(res => {
-                if (res) {
-                    setBenefitBaseInfo(res)
-                } else {
-                    setBenefitBaseInfo(defaultBenefits)
-                }
-            })
+            // benefitsBase(loginUser.profileId).then(res => {
+            //     if (res) {
+            //         setBenefitBaseInfo(res)
+            //     } else {
+            //         setBenefitBaseInfo(defaultBenefits)
+            //     }
+            // })
         }
         store.set(key, loginUser);
     }, [key, profileId])

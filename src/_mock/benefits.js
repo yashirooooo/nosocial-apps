@@ -9,8 +9,8 @@ const benefits = {
             name: 'string',
             benefitName: 'string',
             description: 'string',
-            picture: 'string',
-            providerPicture: 'string',
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kWo1LqrT0NThGfCzrguFPsSiqphFHQ3fSt9d8jlL&s',
+            providerPicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kWo1LqrT0NThGfCzrguFPsSiqphFHQ3fSt9d8jlL&s',
             url: 'string',
             status: 'string',
             tasks: [{

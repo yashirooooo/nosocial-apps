@@ -13,7 +13,7 @@ import { ProfileInfo } from 'src/components/types';
 // ----------------------------------------------------------------------
 
 interface Props {
-  profileInfo: ProfileInfo;
+  profileInfo?: ProfileInfo;
 }
 
 export default function ProfileAppPage({ profileInfo }: Props) {
@@ -29,7 +29,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
         </div>
         <div className='container'>
           <BasicInfo
-            info={profileInfo.info}
+            info={profileInfo?.info}
           />
           <div className='profile_list'>
             <div className='category_container'>
@@ -45,7 +45,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
               </div>
               <div className='category_data_list'>
                 {
-                  (profileInfo.achievements && profileInfo.achievements.length) ?
+                  (profileInfo?.achievements && profileInfo.achievements.length) ?
                   profileInfo.achievements.map(
                     (achievement, key) => 
                     <AchievementsDetailCard
@@ -118,7 +118,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                 <ActivityCard
                   name={`Collects`}
                   number={profileInfo?.activities?.collects?.total}
-                  lastweek={profileInfo.activities?.collects?.lastweek}
+                  lastweek={profileInfo?.activities?.collects?.lastweek}
                 />
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
               </div>
               <div className='category_data_list cl'>
                 {
-                  (profileInfo.benefits && profileInfo.benefits.length) ? 
+                  (profileInfo?.benefits && profileInfo.benefits.length) ? 
                   profileInfo.benefits.map((benefit, key) => 
                     <ProfileBenefit
                       key={key}

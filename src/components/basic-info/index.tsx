@@ -4,34 +4,34 @@ import { ProfileBaseInfo } from '../types';
 import './style.css';
 
 interface Props {
-  info: ProfileBaseInfo
+  info?: ProfileBaseInfo
 }
 
-export default function BasicInfo({info: { id, picture, name, handle, bio, followers, following, attributes: { location, twitter, website }, createdAt }} : Props) {
+export default function BasicInfo({ info } : Props) {
     return <div className='basic_info_container'>
     <div className='basic'>
       <div className='basic_info'>
         <div className='basic_info_avatar'>
-          <img src={picture}></img>
+          <img src={info?.picture}></img>
         </div>
       </div>
     </div>
     <div className='basic_info_data'>
-      <div id='name'>{name}</div>
-      <div id='handle'>{handle}</div>
+      <div id='name'>{info?.name}</div>
+      <div id='handle'>{info?.handle}</div>
       <div className='basic_info_data_up'>
-        <div>{bio}</div>
+        <div>{info?.bio}</div>
       </div>
       <div className='basic_info_data_up'>
-        <div>{fNumber(following)} Followings</div>
-        <div>{fNumber(followers)} Followers</div>
+        <div>{fNumber(info?.following)} Followings</div>
+        <div>{fNumber(info?.followers)} Followers</div>
       </div>
       <div className='basic_info_data_down'>
-        <div id='address'>{id} |</div>
-        {location && <div id='location'><img src='/assets/icons/location.svg' /> {location} |</div>}
-        {twitter && <div id='followings'><img src='/assets/icons/twitter.svg' /> {twitter} |</div>}
-        {website && <div id='followers'><img src='/assets/icons/link.svg' /> {website} |</div>}
-        {createdAt && <div id='created_at'><img src='/assets/icons/calendar.svg' /> Joined {fMonthlyDate(createdAt)}</div>}
+        <div id='address'>{info?.id} |</div>
+        {info?.attributes?.location && <div id='location'><img src='/assets/icons/location.svg' /> {info.attributes.location} |</div>}
+        {info?.attributes?.twitter && <div id='followings'><img src='/assets/icons/twitter.svg' /> {info.attributes.twitter} |</div>}
+        {info?.attributes?.website && <div id='followers'><img src='/assets/icons/link.svg' /> {info.attributes.website} |</div>}
+        {info?.createdAt && <div id='created_at'><img src='/assets/icons/calendar.svg' /> Joined {fMonthlyDate(info.createdAt)}</div>}
       </div>
     </div>
   </div>

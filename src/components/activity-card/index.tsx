@@ -3,8 +3,8 @@ import './style.css';
 
 interface Props {
     name: string;
-    number: number;
-    lastweek: number;
+    number?: number;
+    lastweek?: number;
 }
 
 export default function ActivityCard({name, number, lastweek }: Props) {
@@ -18,7 +18,7 @@ export default function ActivityCard({name, number, lastweek }: Props) {
           {number ? number : 0}
         </Typography>
         {
-            lastweek > 0 ? 
+            (lastweek && lastweek > 0) ? 
             <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
                 +{lastweek} last week
             </Typography> : 
