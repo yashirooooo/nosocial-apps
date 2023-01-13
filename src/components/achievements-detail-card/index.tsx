@@ -86,11 +86,12 @@ export default function AchievementsDetailCard({ achievement }: Props) {
     }
 
     const doCollect = () => {
-        collect('0x123', achievement.id).then(() => {
-            
+        collect('0x123', achievement.id).then((res) => {
+            setMessage(res?.message)
+            setResultOpen(true);
+            setOpen(false);
         })
         setOpen(false);
-        setResultOpen(true);
     }
 
     return <DetailPanel className='app_detail_panel'>
