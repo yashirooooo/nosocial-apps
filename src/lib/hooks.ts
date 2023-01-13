@@ -1,14 +1,18 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useContext } from "react";
-import { profileInfo } from "src/api";
-import { ProfileInfo } from "src/components/types";
+import { appsBase, benefitsBase, profileInfo } from "src/api";
+import { AppBaseInfo, ProfileInfo, BenefitBaseInfo } from "src/components/types";
 import store from 'store';
 import basic_info from 'src/_mock/basic_info';
+import apps from "src/_mock/apps";
+import benefits from "src/_mock/benefits";
 
 export interface LoginUser {
     address: string;
     profileId: string;
     basicInfo: ProfileInfo;
+    appBaseInfo?: AppBaseInfo;
+    benefitBaseInfo?: BenefitBaseInfo;
     setLoginUser: (u: User) => void
 }
 
@@ -18,11 +22,15 @@ interface User {
 }
 
 const defaultProfile = basic_info
+const defaultApps = apps
+const defaultBenefits = benefits
 
 export function useLoginUser(key = 'login'): LoginUser {
     const [address, setAddress] = useState<string>('');
     const [profileId, setProfileId] = useState<string>('');
     const [basicInfo, setBasicInfo] = useState<ProfileInfo>(defaultProfile);
+    const [appBaseInfo, setAppBaseInfo] = useState<AppBaseInfo>(defaultApps);
+    const [benefitBaseInfo, setBenefitBaseInfo] = useState<BenefitBaseInfo>(defaultBenefits);
 
     const setLoginUser = useCallback((loginUser: User) => {
         setAddress(loginUser.address)
@@ -30,31 +38,48 @@ export function useLoginUser(key = 'login'): LoginUser {
         if (loginUser.profileId) {
             profileInfo(loginUser.profileId).then(res => {
               if (res) {
-                setBasicInfo({
-                  info: res
-                })
+                setBasicInfo(res)
+              } else {
+                setBasicInfo(defaultProfile)
               }
+            })
+            appsBase(loginUser.profileId).then(res => {
+                if (res) {
+                    setAppBaseInfo(res)
+                } else {
+                    setAppBaseInfo(defaultApps)
+                }
+            })
+
+            benefitsBase(loginUser.profileId).then(res => {
+                if (res) {
+                    setBenefitBaseInfo(res)
+                } else {
+                    setBenefitBaseInfo(defaultBenefits)
+                }
             })
         }
         store.set(key, loginUser);
-    }, [key])
+    }, [key, profileId])
 
     useEffect(() => {
         const u = store.get(key) as User;
         if (u) {
             setLoginUser(u)
         }
-    }, [key])
+    }, [key, profileId])
 
     const user: LoginUser = useMemo(() => {
         const loginUser = {
             address,
             profileId,
             basicInfo,
+            appBaseInfo,
+            benefitBaseInfo,
             setLoginUser
         }
         return loginUser;
-    }, [address, profileId, setLoginUser, basicInfo])
+    }, [address, profileId, setLoginUser, basicInfo, appBaseInfo, benefitBaseInfo])
 
     return user;
 }

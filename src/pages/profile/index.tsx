@@ -8,38 +8,15 @@ import AchievementsDetailCard from 'src/components/achievements-detail-card';
 import AITagsCard from 'src/components/AITags-card';
 import BasicInfo from 'src/components/basic-info';
 import { ProfileInfo } from 'src/components/types';
-import basic_info from '../../_mock/basic_info';
-import { useEffect, useState } from 'react';
-import profileId from 'src/_mock/profile_id';
-import { profileInfo } from 'src/api';
 // components
 
 // ----------------------------------------------------------------------
-import { useContextLoginUser } from 'src/lib/hooks';
 
 interface Props {
-  info: ProfileInfo;
+  profileInfo: ProfileInfo;
 }
 
-const defaultProfile = basic_info
-
-export default function ProfileAppPage() {
-
-  const user = useContextLoginUser();
-  // const [ basicInfo, setBasicInfo ] = useState<ProfileInfo>(defaultProfile);
-  // console.log('user::::', user)
-
-  // useEffect(() => {
-  //   if (user) {
-  //     profileInfo(user.profileId).then(res => {
-  //       if (res) {
-  //         setBasicInfo({
-  //           info: res
-  //         })
-  //       }
-  //     })
-  //   }
-  // }, [user])
+export default function ProfileAppPage({ profileInfo }: Props) {
 
   return (
     <>
@@ -52,7 +29,7 @@ export default function ProfileAppPage() {
         </div>
         <div className='container'>
           <BasicInfo
-            info={user.basicInfo.info}
+            info={profileInfo.info}
           />
           <div className='profile_list'>
             <div className='category_container'>
@@ -67,10 +44,33 @@ export default function ProfileAppPage() {
                 />
               </div>
               <div className='category_data_list'>
-                <AchievementsDetailCard name={'Posts'} status='achieved' img='/assets/images/achieved.png' />
+                {
+                  (profileInfo.achievements && profileInfo.achievements.length) ?
+                  profileInfo.achievements.map(
+                    (achievement, key) => 
+                    <AchievementsDetailCard
+                      key={key}
+                      name={'Posts'} 
+                      status='achieved' 
+                      img='/assets/images/achieved.png' 
+                      achievement={achievement} 
+                    />)
+                  : <></>
+                }
+                {/* <AchievementsDetailCard name={'Posts'} status='achieved' img='/assets/images/achieved.png' />
                 <AchievementsDetailCard name={'Active Days'} status='ready' img='/assets/images/ready.png' />
                 <AchievementsDetailCard name={'Followers'} status='ready' img='/assets/images/ready.png' />
                 <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' />
+                <AchievementsDetailCard name={'Videos'} status='inprogress' img='/assets/images/ongoing.png' /> */}
               </div>
             </div>
             <div className='category_container'>
@@ -100,23 +100,26 @@ export default function ProfileAppPage() {
                 />
               </div>
               <div className='category_data_list'>
-                <div className='category_data_list_cl'>
-                  <ActivityCard
-                    name={`Posts`}
-                    number={76}
-                    variation={11}
-                  />
-                  <ActivityCard
-                    name={`Mirrors`}
-                    number={19231}
-                    variation={-56.6}
-                  />
-                  <ActivityCard
-                    name={`Comments`}
-                    number={156}
-                    variation={17}
-                  />
-                </div>
+                <ActivityCard
+                  name={`Posts`}
+                  number={profileInfo?.activities?.posts?.total}
+                  lastweek={profileInfo?.activities?.posts?.lastweek}
+                />
+                <ActivityCard
+                  name={`Mirrors`}
+                  number={profileInfo?.activities?.mirrors?.total}
+                  lastweek={profileInfo?.activities?.mirrors?.lastweek}
+                />
+                <ActivityCard
+                  name={`Comments`}
+                  number={profileInfo?.activities?.comments?.total}
+                  lastweek={profileInfo?.activities?.comments?.lastweek}
+                />
+                <ActivityCard
+                  name={`Collects`}
+                  number={profileInfo?.activities?.collects?.total}
+                  lastweek={profileInfo.activities?.collects?.lastweek}
+                />
               </div>
             </div>
             <div className='category_container'>
@@ -131,38 +134,49 @@ export default function ProfileAppPage() {
                 />
               </div>
               <div className='category_data_list cl'>
-                <div className='category_data_list_cl'>
-                  <ProfileBenefit
-                    icon={'/assets/images/image2.svg'}
-                    amount={1.23}
-                    unit={`Ethers`}
-                    author={`lenster`}
-                    img={'/assets/images/image1.svg'}
-                  />
-                  <ProfileBenefit
-                    icon={'/assets/images/image2.svg'}
-                    amount={1.23}
-                    unit={`Ethers`}
-                    author={`lenster`}
-                    img={'/assets/images/matic.svg'}
-                  />
-                </div>
-                <div className='category_data_list_cl'>
-                  <ProfileBenefit
-                    icon={'/assets/images/image2.svg'}
-                    amount={1.23}
-                    unit={'Ethers'}
-                    author={'lenster'}
-                    img={'/assets/images/fs.svg'}
-                  />
-                  <ProfileBenefit
-                    icon={'/assets/images/3.svg'}
-                    amount={1.23}
-                    unit={'Ethers'}
-                    author={'lenster'}
-                    img={'/assets/images/crust.svg'}
-                  />
-                </div>
+                {
+                  (profileInfo.benefits && profileInfo.benefits.length) ? 
+                  profileInfo.benefits.map((benefit, key) => 
+                    <ProfileBenefit
+                      key={key}
+                      icon={'/assets/images/image2.svg'}
+                      amount={1.23}
+                      unit={`Ethers`}
+                      author={`lenster`}
+                      img={'/assets/images/image1.svg'}
+                      benefit={benefit}
+                    />
+                  ) : <></>
+                }
+                {/* <ProfileBenefit
+                  icon={'/assets/images/image2.svg'}
+                  amount={1.23}
+                  unit={`Ethers`}
+                  author={`lenster`}
+                  img={'/assets/images/image1.svg'}
+                />
+                <ProfileBenefit
+                  icon={'/assets/images/image2.svg'}
+                  amount={1.23}
+                  unit={`Ethers`}
+                  author={`lenster`}
+                  img={'/assets/images/matic.svg'}
+                />
+
+                <ProfileBenefit
+                  icon={'/assets/images/image2.svg'}
+                  amount={1.23}
+                  unit={'Ethers'}
+                  author={'lenster'}
+                  img={'/assets/images/fs.svg'}
+                />
+                <ProfileBenefit
+                  icon={'/assets/images/3.svg'}
+                  amount={1.23}
+                  unit={'Ethers'}
+                  author={'lenster'}
+                  img={'/assets/images/crust.svg'}
+                /> */}
               </div>
             </div>
           </div>

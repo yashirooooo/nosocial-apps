@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import './style.css';
 import { Star, StarHalf, CheckCircle } from "@mui/icons-material";
+import { ProfileBaseAchievement } from '../types';
 
 const DetailPanel = styled('div')(({ color = '#FFFFFF' }: PanelProps) => ({
     color: color,
@@ -50,18 +51,19 @@ interface Props {
     name: string;
     status?: string;
     img?: string;
+    achievement: ProfileBaseAchievement;
 }
 
-export default function AchievementsDetailCard({ name, desc, status, img }: Props) {
+export default function AchievementsDetailCard({ name, desc, status, img, achievement }: Props) {
 
     return <DetailPanel className='app_detail_panel'>
         <DetailImgContainer>
             <DetailImg src={img} />
-            { status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
-            { status === 'achieved' && <StatusIcon color='#66ff59'> <CheckCircle className='status_icon' /> </StatusIcon>}
-            { status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
+            { achievement.status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
+            { achievement.status === 'achieved' && <StatusIcon color='#66ff59'> <CheckCircle className='status_icon' /> </StatusIcon>}
+            { achievement.status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
         </DetailImgContainer>
-        <DetailCategory>{name}</DetailCategory>
-        <DetailCategory>{status}</DetailCategory>
+        <DetailCategory>{achievement.name}</DetailCategory>
+        <DetailCategory>{achievement.status}</DetailCategory>
     </DetailPanel>
 }

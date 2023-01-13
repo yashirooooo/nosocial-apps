@@ -1,3 +1,4 @@
+import { ProfileBaseBenefit } from '../types';
 import './style.css';
 
 interface Props {
@@ -6,15 +7,16 @@ interface Props {
     unit: string;
     author: string;
     img: string;
+    benefit: ProfileBaseBenefit;
 }
 
-export default function ProfileBenefit({ icon, amount, unit, author, img }: Props) {
+export default function ProfileBenefit({ benefit }: Props) {
     return <div className='benefits_data_card'>
-        <img id='icon' src={icon} />
+        <img id='icon' src={benefit.picture} />
         <div id='desc'>
-            <div id='top'>{amount} {unit}</div>
-            <div id='bottom'>by {author}</div>
+            <div id='top'>{benefit.benefitName}</div>
+            <div id='bottom'>by {benefit.provider}</div>
         </div>
-        <img id='img' src={img} />
+        <img id='img' src={benefit.providerPicture} />
     </div>
 }

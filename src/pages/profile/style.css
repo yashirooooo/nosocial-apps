@@ -35,6 +35,8 @@
     min-height: 122px;
     margin-top: 15px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .category_data_list_cl {
@@ -44,5 +46,6 @@
 }
 
 .cl {
-    flex-direction: column;
+    /* flex-direction: column; */
+    width: 1000px;
 }

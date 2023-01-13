@@ -4,26 +4,26 @@ import './style.css';
 interface Props {
     name: string;
     number: number;
-    variation: number;
+    lastweek: number;
 }
 
-export default function ActivityCard({name, number, variation }: Props) {
+export default function ActivityCard({name, number, lastweek }: Props) {
     return <div className='activity_data_card'>
-    <Card>
+    <Card className='card'>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {number}
+          {number ? number : 0}
         </Typography>
         {
-            variation > 0 ? 
+            lastweek > 0 ? 
             <Typography variant="body2" sx={{ color: '#9AE4A7' }}>
-                +{variation}% of last week
+                +{lastweek} last week
             </Typography> : 
             <Typography variant="body2" sx={{ color: '#EF8F8F' }}>
-                {variation}% of last week
+                {lastweek} last week
             </Typography>
         }       
       </CardContent>

@@ -12,8 +12,13 @@ import './style.css';
 import BenefitProgress from 'src/components/benefit-progress';
 // ----------------------------------------------------------------------
 import { tasks1, tasks2 } from 'src/_mock/tasks';
+import { BenefitBaseInfo } from 'src/components/types';
 
-export default function BenefitsPage() {
+interface Props {
+  benefitBaseInfo?: BenefitBaseInfo;
+}
+
+export default function BenefitsPage({ benefitBaseInfo }: Props) {
 
   return (
     <>
@@ -22,6 +27,7 @@ export default function BenefitsPage() {
       </Helmet>
 
       <Container maxWidth="xl" className='benefits_page'>
+        {/* filter start */}
         <div className='filter'>
           <div className='filter_button'>Hide Filter</div>
           <FormControl>
@@ -70,6 +76,7 @@ export default function BenefitsPage() {
           </FormControl>
           
         </div>
+        {/* filter end */}
         <div>
           <div className='benefits_list'>
             <div>    
@@ -85,7 +92,21 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
-            <BenefitProgress 
+            {
+              benefitBaseInfo?.inProgress && 
+              benefitBaseInfo?.inProgress.map(benefitBase => 
+                <BenefitProgress 
+                  tasks={tasks2} 
+                  progress={0.3}
+                  name={'MATIC'}
+                  author={'NoSocial'}
+                  amount={70}
+                  icon={'/assets/images/3.svg'}
+                  benefitBase={benefitBase}
+                />
+              )
+            }
+            {/* <BenefitProgress 
               tasks={tasks2} 
               progress={0.3}
               name={'MATIC'}
@@ -116,7 +137,7 @@ export default function BenefitsPage() {
               author={'NoSocial'}
               amount={70}
               icon={'/assets/images/6.svg'}
-            />
+            /> */}
           </div>
           <div className='benefits_list'>
             <div>    
@@ -132,7 +153,7 @@ export default function BenefitsPage() {
                 }}
               />
             </div>
-            <BenefitProgress 
+            {/* <BenefitProgress 
               progress={0}
               name={'MATIC'}
               author={'NoSocial'}
@@ -146,7 +167,22 @@ export default function BenefitsPage() {
               amount={70}
               icon={'/assets/images/polygon.svg'}
               fontColor={'#000000'}
-            />
+            /> */}
+            {
+              (benefitBaseInfo?.notStart && benefitBaseInfo?.notStart.length) ?
+              benefitBaseInfo?.notStart.map((benefitBase, key) => 
+                <BenefitProgress
+                  key={key} 
+                  tasks={tasks2}
+                  progress={0.3}
+                  name={'MATIC'}
+                  author={'NoSocial'}
+                  amount={70}
+                  icon={'/assets/images/3.svg'}
+                  benefitBase={benefitBase}
+                />
+              ) : <></>
+            }
           </div>
         </div>
       </Container>

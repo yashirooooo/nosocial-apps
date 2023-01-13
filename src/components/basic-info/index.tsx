@@ -1,11 +1,13 @@
 import { fNumber } from 'src/utils/formatNumber';
 import { fMonthlyDate } from 'src/utils/formatTime';
-import { ProfileInfo } from '../types';
+import { ProfileBaseInfo } from '../types';
 import './style.css';
 
-type Props = ProfileInfo
+interface Props {
+  info: ProfileBaseInfo
+}
 
-export default function BasicInfo({ info: { id, picture, name, handle, bio, followers, following, attributes: { location, twitter, website }, createdAt } }: Props) {
+export default function BasicInfo({info: { id, picture, name, handle, bio, followers, following, attributes: { location, twitter, website }, createdAt }} : Props) {
     return <div className='basic_info_container'>
     <div className='basic'>
       <div className='basic_info'>
