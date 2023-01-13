@@ -27,7 +27,7 @@ export default function BasicInfo({ info } : Props) {
         <div>{fNumber(info?.followers)} Followers</div>
       </div>
       <div className='basic_info_data_down'>
-        <div id='address'>{info?.id} |</div>
+        {info?.id && <div id='address'>{info?.id} |</div>}
         {info?.attributes?.location && <div id='location'><img src='/assets/icons/location.svg' /> {info.attributes.location} |</div>}
         {info?.attributes?.twitter && <div id='followings'><img src='/assets/icons/twitter.svg' /> {info.attributes.twitter} |</div>}
         {info?.attributes?.website && <div id='followers'><img src='/assets/icons/link.svg' /> {info.attributes.website} |</div>}
