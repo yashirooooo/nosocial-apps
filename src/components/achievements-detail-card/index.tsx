@@ -86,6 +86,7 @@ export default function AchievementsDetailCard({ achievement }: Props) {
     }
 
     const doCollect = () => {
+        console.log('user.profileId', user.profileId)
         collect('0x123', achievement.id).then((res) => {
             setMessage(res?.message)
             setResultOpen(true);
@@ -113,7 +114,7 @@ export default function AchievementsDetailCard({ achievement }: Props) {
             aria-describedby="alert-dialog-description"
         >
             <DialogTitle id="alert-dialog-title">
-                {"Confirm?"}
+                {"Confirm"}
             </DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">

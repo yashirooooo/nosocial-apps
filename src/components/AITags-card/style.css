@@ -2,12 +2,13 @@
     margin-right: 20px;
     /* width: 122px; */
     height: 266px;
-    /* width: 900; */
+    min-width: 900px;
     /* background-color: rgba(213, 190, 252, 0.5); */
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    /* border: 1px white solid; */
 }
 
 .ai_tags_detail_panel img {

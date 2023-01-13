@@ -21,7 +21,6 @@ function PselectPage() {
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
   const onClick = (profileId: string) => {
-    console.log('profileId:::', profileId)
     user.setLoginUser({
       address,
       profileId

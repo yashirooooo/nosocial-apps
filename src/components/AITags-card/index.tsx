@@ -39,7 +39,7 @@ interface Props {
     img?: string;
 }
 
-export default function AITagsCard({ img = 'https://data.nosocial.xyz/ai-tags/0xb30d-0xffffffff-1673583127.png' }: Props) {
+export default function AITagsCard({ img }: Props) {
     return <DetailPanel className='ai_tags_detail_panel'>
         <img src={img} />
     </DetailPanel>

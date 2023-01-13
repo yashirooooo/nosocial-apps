@@ -16,10 +16,10 @@ export default function Router() {
     const user = useContextLoginUser();
     useEffect(() => {
         const timer = setInterval(() => {
-        //   user.setLoginUser({
-        //     profileId: '0x123',
-        //     address: '7777',
-        //   })
+          user.setLoginUser({
+            profileId: '0x0e7b',
+            address: '0x350061d5B3B09fd44691F22Fd9DEd9a5693Ed41F',
+          })
         }, 8000);
     
         return () => {
