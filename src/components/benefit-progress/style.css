@@ -50,7 +50,7 @@
 
 .benefits_card_progress_bar #text #amount {
     font-weight: 900;
-    font-size: 60px;  
+    font-size: 36px;  
 }
 
 .benefits_card_progress_bar #text #unit {
@@ -95,6 +95,11 @@
     color: #D0BCFF;
 
     z-index: 2;
+}
+
+.benefits_card_progress_label:hover {
+    background: rgba(208, 188, 255, 0.08);
+    cursor: pointer;
 }
 
 .benefits_card_task_list {

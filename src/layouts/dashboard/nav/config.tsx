@@ -16,7 +16,7 @@ const navConfig = [
   },
   {
     title: 'Benefits',
-    path: '/dashboard/benifits',
+    path: '/dashboard/benefits',
     icon: <CardGiftcard />,
     open: true
   },

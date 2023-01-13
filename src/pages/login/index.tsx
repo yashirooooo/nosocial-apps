@@ -8,13 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import { whiteList } from 'src/api';
 
 function LoginPage() {
-    const { connect, disconnect, account, isConnected } = useMetaMask();
+    const { connect, account, isConnected } = useMetaMask();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (account) {
             whiteList(account).then(res => {
-                console.log('white list::', res)
                 // TODO: !res.inWhitelist => res.inWhitelist
                 if (res && !res.inWhitelist) {
                     navigate('/login/select', { state: { address: account } })
