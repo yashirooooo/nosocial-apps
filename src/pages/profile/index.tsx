@@ -126,35 +126,31 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                     />
                   ) : <></>
                 }
-                {/* <ProfileBenefit
+                <ProfileBenefit
                   icon={'/assets/images/image2.svg'}
-                  amount={1.23}
-                  unit={`Ethers`}
+                  benefitName={"1.23 Ethers"}
                   author={`lenster`}
                   img={'/assets/images/image1.svg'}
                 />
                 <ProfileBenefit
                   icon={'/assets/images/image2.svg'}
-                  amount={1.23}
-                  unit={`Ethers`}
+                  benefitName={"1.23 Ethers"}
                   author={`lenster`}
                   img={'/assets/images/matic.svg'}
                 />
 
                 <ProfileBenefit
                   icon={'/assets/images/image2.svg'}
-                  amount={1.23}
-                  unit={'Ethers'}
+                  benefitName={"1.23 Ethers"}
                   author={'lenster'}
                   img={'/assets/images/fs.svg'}
                 />
                 <ProfileBenefit
                   icon={'/assets/images/3.svg'}
-                  amount={1.23}
-                  unit={'Ethers'}
+                  benefitName={"1.23 Ethers"}
                   author={'lenster'}
                   img={'/assets/images/crust.svg'}
-                /> */}
+                />
               </div>
             </div>
           </div>

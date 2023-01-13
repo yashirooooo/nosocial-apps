@@ -20,13 +20,8 @@ function PselectPage() {
 
   const [profiles, setProfiles] = useState<Profile[]>([]);
 
-  // const profiles = ["@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  // "@alice.lens", "@bob.lens", "@carlos.lens", "@qwerTyuyyu.lens", "@IiiiiiTTiiitabc.lens",
-  // "@kkkkk.lens", "@mmmrbob.lens", "@carlos.lens"]
-
   const onClick = (profileId: string) => {
+    console.log('profileId:::', profileId)
     user.setLoginUser({
       address,
       profileId

@@ -18,13 +18,15 @@ function AppCard({ icon, name, desc, link, appBase }: Props) {
     const [tipsCount, setTipsCount] = useState<string>('0');
 
     useEffect(() => {
-        const sum = _.sum([appBase.activities.collects, appBase.activities.comments, appBase.activities.mirrors, appBase.activities.posts]);
-        if (sum >= 99) {
-            setTipsCount('99+')
-        } else {
-            setTipsCount(sum + '')
+        const sum = _.sum([appBase?.activities?.collects, appBase?.activities?.comments, appBase?.activities?.mirrors, appBase?.activities?.posts]);
+        if (typeof sum === 'number') {
+            if (sum >= 99) {
+                setTipsCount('99+')
+            } else {
+                setTipsCount(sum + '')
+            }
         }
-    }, [appBase.activities.collects, appBase.activities.comments, appBase.activities.mirrors, appBase.activities.posts])
+    }, [appBase?.activities?.collects, appBase?.activities?.comments, appBase?.activities?.mirrors, appBase?.activities?.posts])
 
     const navigate = () => {
         if (link) {

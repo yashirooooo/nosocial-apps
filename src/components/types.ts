@@ -48,7 +48,7 @@ export interface AppBase {
 }
 
 export interface AppBaseInfo {
-    activated: AppBase[];
+    actived: AppBase[];
     notStart: AppBase[];
 }
 

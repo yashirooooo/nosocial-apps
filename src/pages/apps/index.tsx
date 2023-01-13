@@ -34,8 +34,8 @@ export default function AppsPage({ appBaseInfo }: Props) {
             </div>
             <div className='app_card_list'>
               {
-                ( appBaseInfo?.activated && appBaseInfo?.activated.length) &&
-                  appBaseInfo?.activated.map((appBase, key) =>
+                ( appBaseInfo?.actived && appBaseInfo?.actived.length) &&
+                  appBaseInfo?.actived.map((appBase, key) =>
                     <AppCard
                       key={key}
                       name={`NoSocial`}

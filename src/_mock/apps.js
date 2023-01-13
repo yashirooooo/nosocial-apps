@@ -1,5 +1,5 @@
 const apps = {
-    activated: [ // App has two states notStart and actived
+    actived: [ // App has two states notStart and actived
         {
             id: "0x123",
             name: "Lenster",

@@ -43,21 +43,22 @@ export function useLoginUser(key = 'login'): LoginUser {
                 setBasicInfo(defaultProfile)
               }
             })
-            // appsBase(loginUser.profileId).then(res => {
-            //     if (res) {
-            //         setAppBaseInfo(res)
-            //     } else {
-            //         setAppBaseInfo(defaultApps)
-            //     }
-            // })
+            
+            appsBase(loginUser.profileId).then(res => {
+                if (res) {
+                    setAppBaseInfo(res)
+                } else {
+                    setAppBaseInfo(defaultApps)
+                }
+            })
 
-            // benefitsBase(loginUser.profileId).then(res => {
-            //     if (res) {
-            //         setBenefitBaseInfo(res)
-            //     } else {
-            //         setBenefitBaseInfo(defaultBenefits)
-            //     }
-            // })
+            benefitsBase(loginUser.profileId).then(res => {
+                if (res) {
+                    setBenefitBaseInfo(res)
+                } else {
+                    setBenefitBaseInfo(defaultBenefits)
+                }
+            })
         }
         store.set(key, loginUser);
     }, [key, profileId])
