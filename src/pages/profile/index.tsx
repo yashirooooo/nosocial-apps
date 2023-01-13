@@ -10,6 +10,8 @@ import BasicInfo from 'src/components/basic-info';
 import { ProfileInfo } from 'src/components/types';
 // components
 
+import mock_basicInfo from 'src/_mock/basic_info';
+
 // ----------------------------------------------------------------------
 
 interface Props {
@@ -54,6 +56,16 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                     />)
                   : <></>
                 }
+                {
+                  (mock_basicInfo.achievements && mock_basicInfo.achievements.length) ?
+                  mock_basicInfo.achievements.map(
+                    (achievement, key) => 
+                    <AchievementsDetailCard
+                      key={key}
+                      achievement={achievement} 
+                    />)
+                  : <></>
+                }
               </div>
             </div>
             <div className='category_container'>
@@ -68,7 +80,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                 />
               </div>
               <div className='category_data_list'>
-                <AITagsCard img={profileInfo?.aiTags?.picture} />
+                <AITagsCard img={profileInfo?.aiTags[0]?.picture} url={profileInfo?.aiTags[0]?.url} />
               </div>
             </div>
             <div className='category_container'>
@@ -86,22 +98,22 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                 <ActivityCard
                   name={`Posts`}
                   number={profileInfo?.activities?.posts?.total}
-                  lastweek={profileInfo?.activities?.posts?.lastweek}
+                  lastweek={profileInfo?.activities?.posts?.lastWeek}
                 />
                 <ActivityCard
                   name={`Mirrors`}
                   number={profileInfo?.activities?.mirrors?.total}
-                  lastweek={profileInfo?.activities?.mirrors?.lastweek}
+                  lastweek={profileInfo?.activities?.mirrors?.lastWeek}
                 />
                 <ActivityCard
                   name={`Comments`}
                   number={profileInfo?.activities?.comments?.total}
-                  lastweek={profileInfo?.activities?.comments?.lastweek}
+                  lastweek={profileInfo?.activities?.comments?.lastWeek}
                 />
                 <ActivityCard
                   name={`Collects`}
                   number={profileInfo?.activities?.collects?.total}
-                  lastweek={profileInfo?.activities?.collects?.lastweek}
+                  lastweek={profileInfo?.activities?.collects?.lastWeek}
                 />
               </div>
             </div>
@@ -126,7 +138,16 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                     />
                   ) : <></>
                 }
-                <ProfileBenefit
+                {
+                  (mock_basicInfo?.benefits && mock_basicInfo.benefits.length) ? 
+                  mock_basicInfo.benefits.map((benefit, key) => 
+                    <ProfileBenefit
+                      key={key}
+                      benefit={benefit}
+                    />
+                  ) : <></>
+                }
+                {/* <ProfileBenefit
                   icon={'/assets/images/image2.svg'}
                   benefitName={"1.23 Ethers"}
                   author={`lenster`}
@@ -150,7 +171,7 @@ export default function ProfileAppPage({ profileInfo }: Props) {
                   benefitName={"1.23 Ethers"}
                   author={'lenster'}
                   img={'/assets/images/crust.svg'}
-                />
+                /> */}
               </div>
             </div>
           </div>

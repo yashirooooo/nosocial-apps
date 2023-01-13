@@ -87,7 +87,7 @@ export default function AchievementsDetailCard({ achievement }: Props) {
 
     const doCollect = () => {
         console.log('user.profileId', user.profileId)
-        collect('0x123', achievement.id).then((res) => {
+        collect(user.profileId, achievement.id).then((res) => {
             setMessage(res?.message)
             setResultOpen(true);
             setOpen(false);
@@ -98,10 +98,10 @@ export default function AchievementsDetailCard({ achievement }: Props) {
     return <DetailPanel className='app_detail_panel'>
         <DetailImgContainer>
             {/* <DetailImg src={achievement.picture} /> */}
-            {achievement.status === 'inprogress' && <DetailImg src={achievement.picture} />}
+            {achievement.status === 'inProgress' && <DetailImg src={achievement.picture} />}
             {achievement.status === 'achieved' && <DetailImg src={achievement.picture} onClick={navigate} />}
             {achievement.status === 'ready' && <DetailImg src={achievement.picture} onClick={handleClickOpen} />}
-            {achievement.status === 'inprogress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
+            {achievement.status === 'inProgress' && <StatusIcon color='#abd7a8'> <StarHalf className='status_icon' /> </StatusIcon>}
             {achievement.status === 'achieved' && <StatusIcon color='#66ff59'> <CheckCircle className='status_icon' /> </StatusIcon>}
             {achievement.status === 'ready' && <StatusIcon color='#66ff59'> <Star className='status_icon' /> </StatusIcon>}
         </DetailImgContainer>

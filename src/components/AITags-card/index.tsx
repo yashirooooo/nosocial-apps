@@ -37,10 +37,16 @@ interface PanelProps {
 
 interface Props {
     img?: string;
+    url?: string;
 }
 
-export default function AITagsCard({ img }: Props) {
-    return <DetailPanel className='ai_tags_detail_panel'>
+export default function AITagsCard({ img, url }: Props) {
+    const navigate = () => {
+        if (url) {
+            window.open(url)
+        }
+    } 
+    return <DetailPanel className='ai_tags_detail_panel' onClick={navigate}>
         <img src={img} />
     </DetailPanel>
 }

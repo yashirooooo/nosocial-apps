@@ -6,14 +6,11 @@ import './style.css';
 import _ from 'lodash';
 
 interface Props {
-    icon?: string;
-    name?: string;
-    desc?: string;
-    link?: string;
     appBase: AppBase;
+    showTips?: boolean;
 }
 
-function AppCard({ icon, name, desc, link, appBase }: Props) {
+function AppCard({ appBase, showTips = true }: Props) {
 
     const [tipsCount, setTipsCount] = useState<string>('0');
 
@@ -35,7 +32,7 @@ function AppCard({ icon, name, desc, link, appBase }: Props) {
     }
 
     return <div className='app_card_container'>
-        <div className='summary_tip'>{tipsCount}</div>
+        {showTips &&<div className='summary_tip'>{tipsCount}</div>}
         <div className='app_card'>
             <img className='app_card_icon' src={appBase?.picture} />
             <div className='app_card_content'>

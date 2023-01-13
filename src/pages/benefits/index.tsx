@@ -11,7 +11,7 @@ import FormLabel from '@mui/material/FormLabel';
 import './style.css';
 import BenefitProgress from 'src/components/benefit-progress';
 // ----------------------------------------------------------------------
-import { tasks1, tasks2 } from 'src/_mock/tasks';
+import benefits from 'src/_mock/benefits';
 import { BenefitBaseInfo } from 'src/components/types';
 
 interface Props {
@@ -94,8 +94,9 @@ export default function BenefitsPage({ benefitBaseInfo }: Props) {
             </div>
             {
               benefitBaseInfo?.inProgress && 
-              benefitBaseInfo?.inProgress.map(benefitBase => 
+              benefitBaseInfo?.inProgress.map((benefitBase, key) => 
                 <BenefitProgress 
+                  key={key}
                   benefitBase={benefitBase}
                 />
               )
@@ -165,6 +166,15 @@ export default function BenefitsPage({ benefitBaseInfo }: Props) {
             {
               (benefitBaseInfo?.notStart && benefitBaseInfo?.notStart.length) ?
               benefitBaseInfo?.notStart.map((benefitBase, key) => 
+                <BenefitProgress
+                  key={key} 
+                  benefitBase={benefitBase}
+                />
+              ) : <></>
+            }
+            {
+              (benefits?.notStart && benefits?.notStart.length) ?
+              benefits?.notStart.map((benefitBase, key) => 
                 <BenefitProgress
                   key={key} 
                   benefitBase={benefitBase}

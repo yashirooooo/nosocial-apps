@@ -6,6 +6,7 @@ import './style.css';
 import AppCard from 'src/components/app-card';
 import ExploreApp from 'src/components/app-card/explore-app';
 import { AppBaseInfo } from 'src/components/types';
+import apps from 'src/_mock/apps';
 // ----------------------------------------------------------------------
 
 interface Props {
@@ -34,14 +35,20 @@ export default function AppsPage({ appBaseInfo }: Props) {
             </div>
             <div className='app_card_list'>
               {
+                ( apps?.actived && apps?.actived.length) &&
+                  apps?.actived.map((appBase, key) =>
+                    <AppCard
+                      showTips={false}
+                      key={key}
+                      appBase={appBase}
+                    /> 
+                )
+              }
+              {
                 ( appBaseInfo?.actived && appBaseInfo?.actived.length) &&
                   appBaseInfo?.actived.map((appBase, key) =>
                     <AppCard
                       key={key}
-                      name={`NoSocial`}
-                      icon={`https://i04piccdn.sogoucdn.com/2f1390c681b05d27`}
-                      desc={`NoSocial is a gate to the decentralized socials, which provides the achievement system to help user earn benefits.`}
-                      link='https://www.baidu.com'
                       appBase={appBase}
                     /> 
                 )
@@ -93,6 +100,16 @@ export default function AppsPage({ appBaseInfo }: Props) {
                       appBase={appBase}
                     /> 
                   ) : <></>
+              }
+
+              {
+                ( apps?.notStart && apps?.notStart.length) &&
+                  apps?.notStart.map((appBase, key) =>
+                    <ExploreApp
+                      key={key}
+                      appBase={appBase}
+                    /> 
+                )
               }
             </div>
           </div>

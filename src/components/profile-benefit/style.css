@@ -17,7 +17,14 @@
     border-radius: 50%;
     background-color: white;
     align-items: center;
+    overflow: hidden;
 }
+
+.benefits_data_card #icon img {
+    height: 45px;
+    width: 45px;
+}
+
 
 .benefits_data_card #desc {
     margin-left: 10px;

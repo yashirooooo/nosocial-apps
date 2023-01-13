@@ -1,6 +1,6 @@
 export interface ProfileInfo {
     info: ProfileBaseInfo;
-    aiTags: ProfileBaseAITags;
+    aiTags: ProfileBaseAITags[];
     achievements: ProfileBaseAchievement[];
     activities: ProfileBaseActivity;
     benefits: ProfileBaseBenefit[];
@@ -120,7 +120,7 @@ export interface ProfileBaseAchievement {
 
 export interface ProfileActivityBase {
     total: number;
-    lastweek: number;
+    lastWeek: number;
 }
 
 export interface ProfileBaseActivity {

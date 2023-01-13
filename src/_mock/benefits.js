@@ -47,7 +47,50 @@ const benefits = {
             }],
         },
     ],
-    notStart: []
+    notStart: [
+        {  
+            id: '0x1',
+            rewardType: 'string',
+            category: 'string',
+            provider: 'Polygon',
+            name: '100 MATIC by Polygon',
+            benefitName: 'string',
+            description: 'Polygon believes in Web3 for all. Polygon is a decentralised Ethereum scaling platform that enables developers to build scalable user-friendly dApps with low transaction fees without ever sacrificing on security.',
+            picture: '/assets/images/polygon.svg',
+            providerPicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4kWo1LqrT0NThGfCzrguFPsSiqphFHQ3fSt9d8jlL&s',
+            url: 'string',
+            status: 'string',
+            tasks: [],
+        },
+        {  
+            id: '0x2',
+            rewardType: 'string',
+            category: 'string',
+            provider: 'Lenstube',
+            name: 'BAYC 1 piece NFT',
+            benefitName: 'string',
+            description: 'BAYC is a collection of 10,000 Bored Ape NFTs—unique digital collectibles living on the Ethereum blockchain. Your Bored Ape doubles as your Yacht Club membership card, and grants access to members-only benefits, the first of which is access to THE BATHROOM, a collaborative graffiti board. Future areas and perks can be unlocked by the community through roadmap activation.',
+            picture: '/assets/images/bayc.svg',
+            providerPicture: '',
+            url: 'string',
+            status: 'string',
+            tasks: [],
+        },
+        {  
+            id: '0x3',
+            rewardType: 'string',
+            category: 'string',
+            provider: 'BNB Chain',
+            name: '$20 binance fee tickets',
+            benefitName: 'string',
+            description: 'Binance is an online exchange where users can trade cryptocurrencies. It supports most commonly traded cryptocurrencies. Binance provides a crypto wallet for traders to store their electronic funds. The exchange also has supporting services for users to earn interest or transact using cryptocurrencies.',
+            picture: '/assets/images/bnb.svg',
+            providerPicture: '',
+            url: 'string',
+            status: 'string',
+            tasks: [],
+        }
+    ]
 }
 
 export default benefits;
