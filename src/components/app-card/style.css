@@ -1,6 +1,8 @@
 .app_card_container {
     display: flex;
     flex-direction: column;
+    position: relative;
+    width: 672px;
 }
 
 .app_card {
@@ -14,6 +16,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    position: relative;
 }
 
 .app_card_icon {
@@ -28,6 +31,25 @@
     display: flex;
     margin-left: 19px;
     position: relative;
+}
+
+.summary_tip {
+    position:absolute;
+    left: 645px;
+    top: -2px;
+    height: 29px;
+    width: 36px;
+    border-radius: 100px;
+    /* border: 1px solid; */
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00c2ff;
+    align-self: stretch;
 }
 
 .app_card_content_text {
@@ -92,7 +114,7 @@
     width: 114px;
     height: 50px;
     
-
+    color: #D0BCFF;
     /* M3/state-layers/dark/primary/opacity-0.12 */
 
     background: rgba(208, 188, 255, 0.12);
@@ -102,5 +124,5 @@
     flex: none;
     order: 0;
     align-self: stretch;
-    flex-grow: 1;   
+    flex-grow: 1;  
 }

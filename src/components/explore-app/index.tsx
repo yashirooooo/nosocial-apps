@@ -6,7 +6,7 @@ interface Props {
 
 export default function ExploreApp({ icon, name, desc }: Props) {
     return <div className='app_card_container'>
-        <div className='app_card'>
+        <div className='app_card disable'>
             <img className='app_card_icon' src={icon} />
             <div className='app_card_content'>
                 <div className='app_card_content_text'>
@@ -15,10 +15,11 @@ export default function ExploreApp({ icon, name, desc }: Props) {
                         {desc}
                     </div>
                 </div>
-                <div className='app_card_content_button'>
-                    Activate
-                </div>
+                
             </div>
+        </div>
+        <div className='app_card_content_button'>
+            Activate
         </div>
     </div>
 }

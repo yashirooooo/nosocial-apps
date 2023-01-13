@@ -41,6 +41,6 @@ interface Props {
 
 export default function AITagsCard({ img }: Props) {
     return <DetailPanel className='ai_tags_detail_panel'>
-        <img src='https://pics.nosocial.xyz/0x05-1673492263.png' />
+        <img src='https://data.nosocial.xyz/ai-tags/0x05-1673492263.png' />
     </DetailPanel>
 }

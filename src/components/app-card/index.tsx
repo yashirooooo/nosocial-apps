@@ -11,6 +11,7 @@ interface Props {
 function AppCard({ icon, name, desc }: Props) {
 
     return <div className='app_card_container'>
+        <div className='summary_tip'>99+</div>
         <div className='app_card'>
             <img className='app_card_icon' src={icon} />
             <div className='app_card_content'>

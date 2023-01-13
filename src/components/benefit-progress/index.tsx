@@ -87,7 +87,7 @@ export default function BenefitProgress({ icon, amount, author, name, tasks, pro
             </div>
         </TextDiv>
         <div className='benefits_card_progress_label'>
-          <button onClick={handleChange}>{tasks ? tasks.length : 0} Tasks</button>
+          <div onClick={handleChange}>{tasks ? tasks.length : 0} Tasks</div>
         </div>
       </div>
     </div>
